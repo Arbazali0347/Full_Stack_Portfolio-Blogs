@@ -2,6 +2,7 @@ import React from 'react'
 import image from "../assets/ImageMe.png"
 import { Facebook, Instagram, Linkedin, Twitter, Youtube } from 'lucide-react'
 import { motion } from 'framer-motion'
+import { Download } from 'lucide-react';
 
 const Header = () => {
     return (
@@ -30,10 +31,10 @@ const Header = () => {
                 className='space-y-6 mt-16 lg:flex-1'
             >
                 <div className="text-5xl font-bold leading-tight lg:text-7xl">
-                    <h1 className="transition-all duration-500 ease-out hover:[letter-spacing:3px]">
+                    <h1 className="transition-all duration-500 ease-out hover:[letter-spacing:1px]">
                         Meet Black Aro
                     </h1>
-                    <h1 className="transition-all duration-500 ease-out hover:[letter-spacing:3px]">
+                    <h1 className="transition-all duration-500 ease-out hover:[letter-spacing:1px]">
                         The Developer <br /> Behind This
                     </h1>
                 </div>
@@ -42,7 +43,15 @@ const Header = () => {
                     focused on building clean, modern and performance-driven digital experiences.
                 </p>
 
-                <div className='flex flex-col gap-4 mb-10 mt-10'>
+                <a
+                    href="/Resume.pdf"
+                    download
+                    className="inline-flex items-center gap-2 px-6 py-3 mt-2 bg-gradient-to-r from-white/10 to-white/20 text-white font-semibold rounded-xl shadow-lg hover:scale-105 transition transform duration-300"
+                >
+                    <Download size={20} /> Download Resume
+                </a>
+
+                <div className='flex flex-col gap-4 mb-10 mt-6'>
                     <p className='font-semibold text-gray-300'>Follow Me By These:</p>
                     <ul className='flex gap-6'>
                         <a href="https://www.instagram.com/arbaz_ali8253/" target="_blank" rel="noopener noreferrer">
