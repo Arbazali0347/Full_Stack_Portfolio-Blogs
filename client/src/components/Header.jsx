@@ -13,7 +13,7 @@ const Header = () => {
                 whileInView={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.8 }}
                 viewport={{ once: true }}
-                className='flex items-center justify-center lg:flex-1 lg:order-2'
+                className='flex items-start mt-10 justify-center lg:flex-1 lg:order-2'
             >
                 <img
                     src={image}
