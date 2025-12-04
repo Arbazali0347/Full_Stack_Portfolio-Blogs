@@ -44,7 +44,7 @@ const Header = () => {
                 </p>
 
                 <a
-                    href="/Resume.pdf"
+                    href="/Arbaz_Resume2025.pdf"
                     download
                     className="inline-flex items-center gap-2 px-6 py-3 mt-2 bg-gradient-to-r from-white/10 to-white/20 text-white font-semibold rounded-xl shadow-lg hover:scale-105 transition transform duration-300"
                 >
