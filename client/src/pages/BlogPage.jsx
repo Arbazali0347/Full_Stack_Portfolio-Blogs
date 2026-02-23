@@ -1,173 +1,184 @@
-import React from "react";
-import { motion } from "framer-motion";
-import { Facebook, Twitter, Linkedin, Share2, Send } from "lucide-react";
-import { useParams } from "react-router-dom";
-import { useContext } from "react";
+import React, { useRef, useState, useEffect, useContext } from "react";
+import { motion, useScroll, useSpring } from "framer-motion";
+import { Facebook, Twitter, Linkedin, Share2, Send, ArrowLeft, Calendar, Clock, Tag } from "lucide-react";
+import { useParams, useNavigate } from "react-router-dom";
 import { AppContextProvider } from "../context/AppContext";
-import { useState } from "react";
-import toast from 'react-hot-toast'
-import { useEffect } from "react";
-import { ArrowLeft } from "lucide-react";
-import { useNavigate } from "react-router-dom";
+import toast from 'react-hot-toast';
 
 const BlogPage = () => {
     const navigate = useNavigate();
-    const [data, setData] = useState(null)
     const { id } = useParams();
-    const { axios } = useContext(AppContextProvider)
+    const { axios } = useContext(AppContextProvider);
+    const [data, setData] = useState(null);
 
+    // Reading Progress Bar Logic
+    const { scrollYProgress } = useScroll();
+    const scaleX = useSpring(scrollYProgress, {
+        stiffness: 100,
+        damping: 30,
+        restDelta: 0.001
+    });
 
     const fetchBlogData = async () => {
         try {
-            const { data } = await axios.get(`/api/blog/${id}`)
+            const { data } = await axios.get(`/api/blog/${id}`);
             if (data.success) {
-                setData(data.blog)
+                setData(data.blog);
             } else {
-                toast.error(data.message)
+                toast.error(data.message);
             }
         } catch (error) {
-            toast.error(error.message)
+            toast.error("Error loading blog details");
         }
-    }
+    };
 
     useEffect(() => {
-        fetchBlogData()
-    }, [])
+        fetchBlogData();
+        window.scrollTo(0, 0);
+    }, [id]);
 
     if (!data) {
         return (
-            <div className="flex items-center justify-center min-h-screen bg-gradient-to-br 
-                        from-[#0f0f12] via-[#1a1c20] to-[#000000] text-white">
-
-                <div className="flex flex-col items-center">
-
-                    <div className="w-14 h-14 border-4 border-white/20 border-t-white 
-                                rounded-full animate-spin"></div>
-
-                    <p className="mt-4 text-lg tracking-widest text-white/60">
-                        Loading…
-                    </p>
+            <div className="flex items-center justify-center min-h-screen bg-transparent text-white">
+                <div className="flex flex-col items-center gap-4">
+                    <div className="w-12 h-12 border-4 border-blue-500/20 border-t-blue-500 rounded-full animate-spin"></div>
+                    <p className="text-gray-400 animate-pulse">Fetching Article...</p>
                 </div>
             </div>
         );
     }
 
-
-    // Yaha find ki zaroorat nahi
-    const blog = data;
-
-    if (!blog) {
-        return (
-            <div className="text-white p-10 text-center text-2xl">
-                Blog not found...
-            </div>
-        );
-    }
-
-    // Format Date
-    const formattedDate = new Date(blog.createdAt).toLocaleDateString("en-US", {
-        year: "numeric",
-        month: "long",
-        day: "numeric",
+    const formattedDate = new Date(data.createdAt).toLocaleDateString("en-US", {
+        year: "numeric", month: "long", day: "numeric",
     });
 
     return (
-        <div className="relative min-h-screen w-full px-6 md:px-20 py-20 text-white 
-                    bg-gradient-to-br from-[#0f0f12] via-[#1a1c20] to-[#000000] overflow-hidden">
-            {/* Back Arrow */}
-            <motion.button
-                onClick={() => navigate(-1)}
-                initial={{ opacity: 0, y: -10 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.4 }}
-                whileHover={{ scale: 1.1, x: -3 }}
-                whileTap={{ scale: 0.9 }}
-                className="p-3 bg-white/10 backdrop-blur-lg 
-               border border-white/10 rounded-full shadow-xl
-               hover:bg-white/20 transition cursor-pointer"
-            >
-                <ArrowLeft size={22} className="text-white" />
-            </motion.button>
+        <div className="relative min-h-screen w-full bg-transparent text-white pb-20 font-sans">
+            {/* Reading Progress Bar */}
+            <motion.div
+                className="fixed top-0 left-0 right-0 h-1 bg-blue-500 origin-left z-50"
+                style={{ scaleX }}
+            />
 
-
-            {/* Floating blur divs */}
-            <div className="absolute top-40 -left-20 w-96 h-96 bg-white/5 opacity-20 rounded-full blur-[150px]"></div>
-            <div className="absolute bottom-10 right-0 w-80 h-80 bg-white/10 opacity-10 rounded-full blur-[150px]"></div>
-
-            <div className="relative max-w-4xl mx-auto">
-
-                <div className="text-center">
-                    {/* Published Date */}
-                    <p className="text-white/50 lg:text-xl text-sm mb-3">
-                        Published on <span className="text-white">{formattedDate}</span>
-                    </p>
-
-                    {/* Title */}
-                    <h1 className="lg:text-6xl text-2xl font-bold leading-tight">
-                        {blog.title}
-                    </h1>
-
-                    {/* Subtitle */}
-                    <h2 className="lg:text-2xl text-sm text-white/70 mt-4">
-                        {blog.subTitle}
-                    </h2>
-
-                </div>
-
-                {/* Image */}
-                <img
-                    src={blog.image}
-                    alt={blog.title}
-                    className="w-full object-cover rounded-3xl mt-8 shadow-xl"
-                />
-
-                {/* Content */}
-                <div
-                    className="mt-10 text-lg leading-relaxed text-white/80 blog-content"
-                    dangerouslySetInnerHTML={{ __html: blog.description }}
-                />
-
-                {/* Share Section (same as before) */}
-                <div className="mt-14 p-6 rounded-2xl bg-white/5 backdrop-blur-xl border border-white/10">
-                    <p className="text-white/70 text-lg font-semibold mb-4 flex items-center gap-2">
-                        <Share2 size={20} /> Share this blog
-                    </p>
-
-                    <div className="flex gap-4">
-                        <a
-                            href={`https://www.facebook.com/sharer/sharer.php?u=${window.location.href}`}
-                            target="_blank" rel="noopener noreferrer"
-                            className="p-3 rounded-full bg-white/10 hover:bg-white/20"
-                        >
-                            <Facebook size={22} />
-                        </a>
-
-                        <a
-                            href={`https://twitter.com/intent/tweet?url=${window.location.href}&text=${blog.title}`}
-                            target="_blank" rel="noopener noreferrer"
-                            className="p-3 rounded-full bg-white/10 hover:bg-white/20"
-                        >
-                            <Twitter size={22} />
-                        </a>
-
-                        <a
-                            href={`https://www.linkedin.com/sharing/share-offsite/?url=${window.location.href}`}
-                            target="_blank" rel="noopener noreferrer"
-                            className="p-3 rounded-full bg-white/10 hover:bg-white/20"
-                        >
-                            <Linkedin size={22} />
-                        </a>
-
-                        <a
-                            href={`https://api.whatsapp.com/send?text=${blog.title} - ${window.location.href}`}
-                            target="_blank" rel="noopener noreferrer"
-                            className="p-3 rounded-full bg-white/10 hover:bg-white/20"
-                        >
-                            <Send size={22} />
-                        </a>
-                    </div>
-                </div>
+            {/* Navigation & Back Button */}
+            <div className="fixed top-24 left-6 lg:left-16 z-40">
+                <motion.button
+                    onClick={() => navigate(-1)}
+                    whileHover={{ scale: 1.1, x: -5 }}
+                    className="p-3 bg-white/5 backdrop-blur-xl border border-white/10 rounded-full hover:bg-white/10 transition-all text-white shadow-2xl"
+                >
+                    <ArrowLeft size={20} />
+                </motion.button>
             </div>
+
+            <article className="max-w-4xl mx-auto px-6 pt-28">
+                {/* Header Section */}
+                <header className="space-y-6 text-center lg:text-left mb-12">
+                    <motion.div 
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        className="flex flex-wrap items-center justify-center lg:justify-start gap-4 text-sm text-gray-400"
+                    >
+                        <span className="flex items-center gap-1.5 bg-blue-500/10 text-blue-400 px-3 py-1 rounded-full border border-blue-500/20">
+                            <Tag size={14} /> {data.category || "Technology"}
+                        </span>
+                        <span className="flex items-center gap-1.5 italic font-light">
+                            <Calendar size={14} /> {formattedDate}
+                        </span>
+                        <span className="flex items-center gap-1.5 italic font-light">
+                            <Clock size={14} /> 5 min read
+                        </span>
+                    </motion.div>
+
+                    <motion.h1 
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ delay: 0.1 }}
+                        className="text-4xl lg:text-7xl font-extrabold leading-[1.1] tracking-tight"
+                    >
+                        {data.title}
+                    </motion.h1>
+
+                    <motion.p 
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ delay: 0.2 }}
+                        className="text-xl lg:text-2xl text-gray-400 font-light"
+                    >
+                        {data.subTitle}
+                    </motion.p>
+                </header>
+
+                {/* Hero Image */}
+                <motion.div 
+                    initial={{ opacity: 0, scale: 0.95 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    className="relative aspect-video rounded-[2.5rem] overflow-hidden shadow-2xl border border-white/10 mb-16"
+                >
+                    <img
+                        src={data.image}
+                        alt={data.title}
+                        className="w-full h-full object-cover"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent"></div>
+                </motion.div>
+
+                {/* Main Content Area */}
+                <div className="flex flex-col lg:flex-row gap-12 relative">
+                    {/* Content */}
+                    <motion.div 
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        transition={{ delay: 0.3 }}
+                        className="flex-1 prose prose-invert prose-lg max-w-none 
+                        prose-headings:font-bold prose-headings:text-white 
+                        prose-p:text-gray-300 prose-p:leading-relaxed 
+                        prose-strong:text-blue-400 prose-img:rounded-3xl"
+                    >
+                        <div 
+                            dangerouslySetInnerHTML={{ __html: data.description }} 
+                            className="blog-content-container"
+                        />
+                    </motion.div>
+                </div>
+
+                {/* Footer / Share Section */}
+                <motion.footer 
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    className="mt-20 pt-10 border-t border-white/10 flex flex-col items-center text-center gap-8"
+                >
+                    <div className="space-y-2">
+                        <h4 className="text-2xl font-bold italic">Arbaz Ali</h4>
+                        <p className="text-gray-500 max-w-sm">Full Stack Developer & AI Enthusiast sharing insights through code and words.</p>
+                    </div>
+
+                    <div className="bg-white/[0.03] backdrop-blur-xl border border-white/10 p-8 rounded-[2rem] w-full max-w-xl">
+                        <p className="text-gray-300 font-bold mb-6 flex items-center justify-center gap-2">
+                            <Share2 size={20} className="text-blue-400" /> Share the knowledge
+                        </p>
+                        <div className="flex justify-center gap-6">
+                            {[
+                                { icon: <Facebook />, link: `https://www.facebook.com/sharer/sharer.php?u=${window.location.href}`, color: "hover:text-blue-500" },
+                                { icon: <Twitter />, link: `https://twitter.com/intent/tweet?url=${window.location.href}`, color: "hover:text-cyan-400" },
+                                { icon: <Linkedin />, link: `https://www.linkedin.com/sharing/share-offsite/?url=${window.location.href}`, color: "hover:text-blue-600" },
+                                { icon: <Send />, link: `https://api.whatsapp.com/send?text=${window.location.href}`, color: "hover:text-emerald-500" }
+                            ].map((social, i) => (
+                                <a
+                                    key={i}
+                                    href={social.link}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className={`p-4 rounded-2xl bg-white/5 border border-white/10 transition-all duration-300 hover:scale-110 hover:bg-white/10 ${social.color}`}
+                                >
+                                    {social.icon}
+                                </a>
+                            ))}
+                        </div>
+                    </div>
+                </motion.footer>
+            </article>
         </div>
     );
 };

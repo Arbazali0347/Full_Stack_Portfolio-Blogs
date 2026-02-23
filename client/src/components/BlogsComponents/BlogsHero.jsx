@@ -1,63 +1,77 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
+import { Search, Sparkles } from "lucide-react";
 import BlogsCardList from "./BlogsCardList";
 
 const BlogsHero = () => {
-    const [search, setSearch] = useState("")
+    const [search, setSearch] = useState("");
+
     return (
-        <div className="relative min-h-[60vh] flex flex-col items-center justify-center px-6 lg:px-16 py-24 text-white
-                        bg-gradient-to-br from-[#0f0f12] via-[#1a1c20] to-[#000000] overflow-hidden">
+        <div className="relative w-full px-6 lg:px-16 py-10 flex flex-col items-center bg-transparent">
+            
+            {/* Minimal Decorative Elements */}
+            <div className="absolute top-10 left-1/4 w-64 h-64 bg-blue-500/10 rounded-full blur-[100px] pointer-events-none"></div>
+            <div className="absolute top-40 right-1/4 w-64 h-64 bg-emerald-500/10 rounded-full blur-[100px] pointer-events-none"></div>
 
-            {/* Floating blurred divs */}
-            <div className="absolute top-20 -left-10 w-72 h-72 bg-white/5 opacity-20 rounded-full blur-[120px]"></div>
-            <div className="absolute bottom-10 right-0 w-80 h-80 bg-white/10 opacity-10 rounded-full blur-[150px]"></div>
+            {/* Title Section */}
+            <div className="text-center space-y-6 max-w-4xl relative z-10">
+                <motion.div
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/5 border border-white/10 text-blue-400 text-sm font-bold uppercase tracking-widest shadow-sm"
+                >
+                    <Sparkles size={14} />
+                    <span>Insights & Articles</span>
+                </motion.div>
 
-            {/* Title */}
-            <motion.h1
-                initial={{ opacity: 0, y: -20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8 }}
-                className="text-5xl sm:text-6xl lg:text-7xl font-bold text-center leading-tight"
-            >
-                Arbaz ali <span className="text-gray-400">blogging</span> <br /> platform.
-            </motion.h1>
+                <motion.h1
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.8 }}
+                    className="text-5xl lg:text-7xl font-bold text-white leading-[1.1] tracking-tight"
+                >
+                    Arbaz Ali <span className="bg-gradient-to-r from-blue-400 via-cyan-400 to-emerald-400 text-transparent bg-clip-text">Blogging</span> <br /> Platform.
+                </motion.h1>
 
-            {/* Description */}
-            <motion.p
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.2 }}
-                className="mt-6 text-center text-white/70 max-w-3xl text-lg sm:text-xl leading-relaxed"
-            >
-                Welcome to my personal blogging platform a space to share thoughts, ideas, and creativity, Arbaz Ali’s personal blogging space created with passion and powered by AI.
-            </motion.p>
+                <motion.p
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.8, delay: 0.2 }}
+                    className="text-gray-400 text-lg lg:text-xl max-w-2xl mx-auto leading-relaxed font-light"
+                >
+                    A digital space for sharing creative thoughts, AI insights, and modern web development ideas.
+                </motion.p>
+            </div>
 
-            {/* Search bar */}
+            {/* Modern Integrated Search Bar */}
             <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.4 }}
-                className="mt-10 w-full max-w-xl flex flex-col sm:flex-row gap-3"
+                className="mt-12 w-full max-w-2xl relative group"
             >
-                <input
-                    type="text"
-                    placeholder="Search blogs..."
-                    onChange={(e)=> setSearch(e.target.value)}
-                    className="w-full p-4 rounded-xl sm:rounded-l-xl sm:rounded-r-none 
-                   bg-white/5 border border-white/10 text-white 
-                   placeholder-white/60 focus:outline-none focus:border-white/30 
-                   text-base sm:text-lg"
-                   value={search}
-                />
-
-                <button className="w-full sm:w-auto px-6 py-4 rounded-xl sm:rounded-r-xl sm:rounded-l-none 
-                       bg-white/10 hover:bg-white/20 text-white 
-                       font-semibold transition-all duration-300 text-base sm:text-lg">
-                    Search
-                </button>
+                <div className="absolute inset-0 bg-blue-500/20 rounded-2xl blur-xl opacity-0 group-focus-within:opacity-100 transition-opacity duration-500"></div>
+                <div className="relative flex items-center bg-white/5 border border-white/10 backdrop-blur-xl rounded-2xl p-2 transition-all duration-300 group-focus-within:border-white/30 shadow-2xl">
+                    <div className="pl-4 text-gray-400">
+                        <Search size={20} />
+                    </div>
+                    <input
+                        type="text"
+                        placeholder="Search for articles, topics..."
+                        onChange={(e) => setSearch(e.target.value)}
+                        className="w-full bg-transparent p-3 lg:p-4 text-white placeholder-gray-500 outline-none text-lg"
+                        value={search}
+                    />
+                    <button className="hidden sm:block px-8 py-3 bg-white text-black font-bold rounded-xl hover:bg-blue-400 hover:text-white transition-all duration-300 active:scale-95">
+                        Search
+                    </button>
+                </div>
             </motion.div>
+
             {/* Blogs Card List */}
-            <BlogsCardList search={search}/>
+            <div className="w-full mt-20">
+                <BlogsCardList search={search} />
+            </div>
         </div>
     );
 };

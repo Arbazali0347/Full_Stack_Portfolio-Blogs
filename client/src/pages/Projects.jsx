@@ -1,5 +1,8 @@
 import React, { useState } from "react";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
+import { ExternalLink, Github, Code2, Globe } from "lucide-react";
+
+// Assets (Aap ke existing imports)
 import SaaS from "../assets/SaaS.png";
 import ECom from "../assets/ECom.png";
 import Dark from "../assets/DarkAndLight.png";
@@ -22,151 +25,28 @@ import ajrealestate from "../assets/ajrealestate.png";
 
 const projectsData = {
   fullstack: [
-    {
-      title: "Real Estate Website for Aj realestate (Adnan jilani)",
-      desc: "A modern real estate website built with React and Node.js, featuring property listings and contact forms.",
-      link: "https://ajrealestate.pk/",
-      image: ajrealestate,
-      Github: false
-    },
-    {
-      title: "Nextfit E-Commerce Website for T-Shirts",
-      desc: "A responsive and feature-rich e-commerce website for T-shirts built with React and Node.js with dashboard.",
-      link: "https://nextfit-seven.vercel.app/",
-      image: Tshirt,
-      Github: "https://github.com/Arbazali0347/Nextfit",
-    },
-    {
-      title: "SaaS Background Remover",
-      desc: "A complete MERN SaaS Background Remover with modern UI and dynamic sections.",
-      link: "https://bg-remover-saas-rt79.vercel.app/",
-      image: SaaS,
-      Github: "https://github.com/Arbazali0347/BG-remover-SAAS",
-    },
-    {
-      title: "E-Commerce App",
-      desc: "Full-featured MERN e-commerce with auth, products, and UI for client.",
-      link: "https://amchemical.store",
-      image: ECom,
-      Github: "https://github.com/Arbazali0347/AM-E-Commerce",
-    },
-    {
-      title: "AI Blogging Platform",
-      desc: "A modern blogging platform integrated with AI workflow tools.",
-      link: "https://arbaz-blog-platfrom-38rn.vercel.app/",
-      image: Blogging,
-      Github: "https://github.com/Arbazali0347/Arbaz-blog-platfrom",
-    },
+    { title: "Real Estate Website (AJ)", desc: "A premium real estate platform for property listings.", link: "https://ajrealestate.pk/", image: ajrealestate, Github: false },
+    { title: "Nextfit E-Com", desc: "MERN Stack T-shirt store with admin dashboard.", link: "https://nextfit-seven.vercel.app/", image: Tshirt, Github: "https://github.com/Arbazali0347/Nextfit" },
+    { title: "SaaS BG Remover", desc: "Dynamic background remover with AI integration.", link: "https://bg-remover-saas-rt79.vercel.app/", image: SaaS, Github: "https://github.com/Arbazali0347/BG-remover-SAAS" },
+    { title: "E-Commerce App", desc: "Full-featured MERN store with secure checkout.", link: "https://amchemical.store", image: ECom, Github: "https://github.com/Arbazali0347/AM-E-Commerce" },
+    { title: "AI Blogging Platform", desc: "Modern blogging with AI-powered content tools.", link: "https://arbaz-blog-platfrom-38rn.vercel.app/", image: Blogging, Github: "https://github.com/Arbazali0347/Arbaz-blog-platfrom" },
   ],
-
   react: [
-    {
-      title: "Todo App",
-      desc: "A clean React todo manager with smooth UI.",
-      link: "https://todo-app-using-react-lyart.vercel.app/",
-      image: React_Todo,
-      Github: "https://github.com/Arbazali0347/Todo-App-using-React",
-    },
-    {
-      title: "React Portfolio",
-      desc: "A modern portfolio powered by API-driven content.",
-      link: "https://react-my-portfolio-chi.vercel.app/",
-      image: React_PortFolio,
-      Github: "https://github.com/Arbazali0347/React-My-Portfolio",
-    },
-    {
-      title: "Movie Searcher",
-      desc: "Movie finder app using the OMDB API.",
-      link: "https://react-movie-searcher-eta.vercel.app/",
-      image: MovieSearcher,
-      Github: "https://github.com/Arbazali0347/React-Movie-Searcher",
-    },
-    {
-      title: "React Gallery",
-      desc: "Image gallery fetching photos from public APIs.",
-      link: "https://ract-gallary-app.vercel.app/",
-      image: React_Gallary,
-      Github: "https://github.com/Arbazali0347/Ract_Gallary_APP",
-    },
-    {
-      title: "Link Shortener",
-      desc: "URL shortener built with a public API.",
-      link: "https://link-shortner-phi-lake.vercel.app/",
-      image: React_LinkShortner,
-      Github: "https://github.com/Arbazali0347/Link-Shortner",
-    },
+    { title: "Movie Searcher", desc: "React app fetching data from OMDB API.", link: "https://react-movie-searcher-eta.vercel.app/", image: MovieSearcher, Github: "https://github.com/Arbazali0347/React-Movie-Searcher" },
+    { title: "React Gallery", desc: "Visual gallery with API-driven images.", link: "https://ract-gallary-app.vercel.app/", image: React_Gallary, Github: "https://github.com/Arbazali0347/Ract_Gallary_APP" },
+    { title: "Link Shortener", desc: "Clean UI for shortening long URLs.", link: "https://link-shortner-phi-lake.vercel.app/", image: React_LinkShortner, Github: "https://github.com/Arbazali0347/Link-Shortner" },
   ],
-
   tailwind: [
-    {
-      title: "Dark/Light UI",
-      desc: "A modern theme toggle UI built using Tailwind CSS.",
-      link: "https://dark-and-light-ruby.vercel.app/",
-      image: Dark,
-      Github: "https://github.com/Arbazali0347/Dark-and-Light",
-    },
-    {
-      title: "About UI Design",
-      desc: "A clean Tailwind-based About page design.",
-      link: "https://my-project-tailwind.vercel.app/",
-      image: MyAbout,
-      Github: "https://github.com/Arbazali0347/My-About-Project",
-    },
+    { title: "Dark/Light UI", desc: "Seamless theme switching interface.", link: "https://dark-and-light-ruby.vercel.app/", image: Dark, Github: "https://github.com/Arbazali0347/Dark-and-Light" },
+    { title: "About UI Design", desc: "Modern About page with Glassmorphism.", link: "https://my-project-tailwind.vercel.app/", image: MyAbout, Github: "https://github.com/Arbazali0347/My-About-Project" },
   ],
-
   node: [
-    {
-      title: "Profile Auth App",
-      desc: "Node + Express authentication system with protected routes.",
-      link: false,
-      image: NodeProfile,
-      Github: "https://github.com/Arbazali0347/Profile-Auth-Node-Express",
-    },
-    {
-      title: "Todo Auth App",
-      desc: "Full todo system with JWT authentication.",
-      link: false,
-      image: Todo_Auth,
-      Github: "https://github.com/Arbazali0347/Todo-List-with-authentication",
-    },
+    { title: "Profile Auth App", desc: "Secure Node.js authentication system.", link: false, image: NodeProfile, Github: "https://github.com/Arbazali0347/Profile-Auth-Node-Express" },
+    { title: "Todo Auth App", desc: "Task manager with JWT security.", link: false, image: Todo_Auth, Github: "https://github.com/Arbazali0347/Todo-List-with-authentication" },
   ],
-
   css: [
-    {
-      title: "Saqlain Clone",
-      desc: "A clean clone of Saqlain Khan’s website UI.",
-      link: "https://arbazali0347.github.io/Saqlain-website-clone/",
-      image: Saqlain_Website_Clone,
-      Github: "https://github.com/Arbazali0347/Saqlain-website-clone",
-    },
-    {
-      title: "Uncrypt Messenger",
-      desc: "Simple messenger UI created using JavaScript.",
-      link: "https://arbazali0347.github.io/Text-Messanger/",
-      image: JavaScript_messanger,
-      Github: "https://github.com/Arbazali0347/Text-Messanger/",
-    },
-    {
-      title: "Portfolio UI",
-      desc: "A minimal and elegant HTML/CSS portfolio.",
-      link: "https://arbazali0347.github.io/Arbaz.ali-Portfolio/",
-      image: HTML_Portfolio,
-      Github: "https://github.com/Arbazali0347/Arbaz.ali-Portfolio",
-    },
-    {
-      title: "Portfolio v2",
-      desc: "Another modern HTML/CSS portfolio design.",
-      link: "https://arbazali0347.github.io/HTML_CSS_Portfolio/",
-      image: HTML_CSS_Portfolio,
-      Github: "https://github.com/Arbazali0347/HTML_CSS_Portfolio",
-    },
-    {
-      title: "E-Commerce UI",
-      desc: "A simple product-focused HTML/CSS e-commerce layout.",
-      link: "https://arbazali0347.github.io/E-commerce-HTML-CSS/",
-      image: HTML_CSS_Ecom,
-      Github: "https://github.com/Arbazali0347/E-commerce-HTML-CSS",
-    },
+    { title: "Saqlain Clone", desc: "Pixel perfect UI clone of a portfolio.", link: "https://arbazali0347.github.io/Saqlain-website-clone/", image: Saqlain_Website_Clone, Github: "https://github.com/Arbazali0347/Saqlain-website-clone" },
+    { title: "Uncrypt Messenger", desc: "Modern chat interface layout.", link: "https://arbazali0347.github.io/Text-Messanger/", image: JavaScript_messanger, Github: "https://github.com/Arbazali0347/Text-Messanger/" },
   ],
 };
 
@@ -177,102 +57,117 @@ const Projects = () => {
   const tabs = [
     { name: "Full-Stack", key: "fullstack" },
     { name: "React", key: "react" },
-    { name: "TailwindCss", key: "tailwind" },
-    { name: "Node/Express", key: "node" },
-    { name: "HTML/CSS/JavaScript", key: "css" },
+    { name: "Tailwind", key: "tailwind" },
+    { name: "Node", key: "node" },
+    { name: "Static", key: "css" },
   ];
 
   return (
-    <div className="min-h-screen px-6 lg:px-16 py-12 bg-gradient-to-br from-[#0f0f12] via-[#1a1c20] to-[#000000] text-white relative overflow-hidden">
-
-      <div className="mb-12 text-center">
-        <h1 className="text-4xl font-bold mb-2">
-          My Projects
-          <span className="ml-3 text-sm bg-white/10 px-3 py-1 rounded-full">
-            {totalProjects}
-          </span>
+    <div className="min-h-screen px-6 lg:px-16 py-16 text-white">
+      {/* Header Section */}
+      <div className="mb-16 text-center space-y-4">
+        <h1 className="text-4xl lg:text-6xl font-bold tracking-tight">
+          Crafted <span className="bg-gradient-to-r from-blue-400 to-emerald-400 text-transparent bg-clip-text">Works</span>
         </h1>
-        <p className="text-white/50 text-sm">Total Projects Completed</p>
+        <div className="inline-flex items-center gap-2 bg-white/5 border border-white/10 px-4 py-1.5 rounded-full">
+          <span className="w-2 h-2 bg-emerald-500 rounded-full animate-pulse"></span>
+          <p className="text-sm text-gray-400 font-medium">{totalProjects} Projects Completed</p>
+        </div>
       </div>
 
-      {/* Tabs */}
-      <div className="flex justify-center gap-6 mb-12 flex-wrap">
+      {/* Modern Tabs */}
+      <div className="flex justify-center gap-2 lg:gap-4 mb-16 flex-wrap">
         {tabs.map((tab) => (
           <button
             key={tab.key}
             onClick={() => setActiveTab(tab.key)}
-            className={`
-        flex items-center gap-2
-        px-6 py-2 rounded-full
-        text-base font-medium
-        transition-all duration-300
-        ${activeTab === tab.key
-                ? "bg-white/20 backdrop-blur-md"
-                : "bg-white/5 hover:bg-white/10"
-              }
-      `}
+            className={`relative px-6 py-2.5 rounded-full text-sm font-semibold transition-all duration-300 ${
+              activeTab === tab.key ? "text-white" : "text-gray-500 hover:text-gray-300"
+            }`}
           >
-            {/* Tab Name */}
-            <span>{tab.name}</span>
-
-            {/* Project Length */}
-            <span className="text-sm bg-white/10 px-3 py-1 rounded-full">
-              {projectsData[tab.key].length}
+            {activeTab === tab.key && (
+              <motion.div
+                layoutId="activeTab"
+                className="absolute inset-0 bg-white/10 border border-white/20 rounded-full"
+                transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
+              />
+            )}
+            <span className="relative z-10 flex items-center gap-2">
+              {tab.name}
+              <span className={`text-[10px] px-1.5 py-0.5 rounded-md ${activeTab === tab.key ? "bg-blue-500/20 text-blue-300" : "bg-white/5 text-gray-600"}`}>
+                {projectsData[tab.key].length}
+              </span>
             </span>
           </button>
         ))}
       </div>
 
+      {/* Projects Grid */}
+      <motion.div 
+        layout
+        className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8"
+      >
+        <AnimatePresence mode="popLayout">
+          {projectsData[activeTab].map((project, index) => (
+            <motion.div
+              key={project.title}
+              layout
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.9 }}
+              transition={{ duration: 0.4 }}
+              className="group bg-[#0f0f0f] border border-white/10 rounded-[2.5rem] p-4 hover:border-white/20 transition-all duration-500 hover:shadow-2xl hover:shadow-blue-500/10"
+            >
+              {/* Card Image */}
+              <div className="relative aspect-video rounded-[1.8rem] overflow-hidden">
+                <img
+                  src={project.image}
+                  alt={project.title}
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-60"></div>
+              </div>
 
-      {/* Grid */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-        {projectsData[activeTab].map((project, index) => (
-          <motion.div
-            key={index}
-            className="bg-white/5 border border-white/10 rounded-3xl p-6 backdrop-blur-xl"
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-          >
-            <div className="relative rounded-[10px] overflow-hidden group">
-              <img
-                src={project.image}
-                alt={project.title}
-                className="w-full h-full object-cover"
-              />
+              {/* Card Content */}
+              <div className="px-3 py-6 space-y-3">
+                <h2 className="text-xl font-bold text-gray-100 group-hover:text-blue-400 transition-colors">
+                  {project.title}
+                </h2>
+                <p className="text-gray-400 text-sm line-clamp-2 leading-relaxed font-light">
+                  {project.desc}
+                </p>
 
-              {/* FIXED overlays */}
-              <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-black/20 to-transparent pointer-events-none"></div>
-              <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-all duration-300 shadow-inner shadow-black/40 pointer-events-none"></div>
-            </div>
-
-            <h2 className="text-2xl font-bold mt-4">{project.title}</h2>
-            <p className="text-white/60 mt-2">{project.desc}</p>
-
-            <div className="flex gap-2 mt-4 relative z-10">
-              {project.link && (
-                <a
-                  href={project.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="px-4 py-2 rounded-full bg-white/10 hover:bg-white/20"
-                >
-                  View Project
-                </a>
-              )}
-              {project.Github && (
-                <a
-                  href={project.Github}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="px-4 py-2 rounded-full bg-white/10 hover:bg-white/20"
-                >
-                  Source Code
-                </a>
-              )}
-            </div>
-          </motion.div>
-        ))}
-      </div>
+                {/* Buttons */}
+                <div className="flex items-center gap-3 pt-4">
+                  {project.link && (
+                    <a
+                      href={project.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex-1 flex items-center justify-center gap-2 py-3 rounded-2xl bg-white text-black font-bold text-xs hover:bg-gray-200 transition-colors"
+                    >
+                      <Globe size={14} /> Live Demo
+                    </a>
+                  )}
+                  {project.Github && (
+                    <a
+                      href={project.Github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex-1 flex items-center justify-center gap-2 py-3 rounded-2xl bg-white/5 border border-white/10 text-white font-bold text-xs hover:bg-white/10 transition-colors"
+                    >
+                      <Github size={14} /> Github
+                    </a>
+                  )}
+                  {!project.link && !project.Github && (
+                    <span className="text-gray-600 text-xs italic">Private Repository</span>
+                  )}
+                </div>
+              </div>
+            </motion.div>
+          ))}
+        </AnimatePresence>
+      </motion.div>
     </div>
   );
 };

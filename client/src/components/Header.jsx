@@ -14,86 +14,102 @@ import {
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 
-const techIcons = [Code, Terminal, Server];
+const socialLinks = [
+  { Icon: Instagram, name: "Instagram" },
+  { Icon: Linkedin, name: "LinkedIn" },
+  { Icon: Youtube, name: "YouTube" },
+  { Icon: Facebook, name: "Facebook" }
+];
 
+const techIcons = [
+  { Icon: Code, name: "Code" },
+  { Icon: Terminal, name: "Terminal" },
+  { Icon: Server, name: "Backend" }
+];
 
 const Header = () => {
-    const navigate = useNavigate();
+  const navigate = useNavigate();
+  
   const orbitVariants = {
-    rotate: { rotate: 360, transition: { duration: 15, repeat: Infinity, ease: "linear" } }
+    rotate: { rotate: 360, transition: { duration: 20, repeat: Infinity, ease: "linear" } }
   };
 
   return (
-    <div className="relative px-6 lg:px-16 mt-16 lg:mt-5 overflow-hidden">
+    // Removed min-h-screen and bg color, added standard padding for a balanced size
+    <div className="relative w-full flex flex-col items-center px-6 lg:px-16 py-16 lg:py-10 overflow-hidden">
+      
+      <div className="grid lg:grid-cols-2 gap-20 items-center w-full max-w-7xl mx-auto z-10">
         
-
-      <div className="grid lg:grid-cols-2 gap-16 items-center">
         {/* LEFT SIDE */}
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
           viewport={{ once: true }}
-          className="space-y-10 mt-15"
+          className="space-y-8"
         >
           <div className="flex items-start gap-6">
-            <div className="w-[2px] h-32 bg-white/30"></div>
-            <div className="space-y-5">
-              {/* Name & Title */}
-              <h1 className="text-5xl lg:text-6xl leading-tight font-semibold">
+            <div className="w-[3px] h-28 bg-gradient-to-b from-blue-500 to-emerald-500 rounded-full mt-2"></div>
+            <div className="space-y-4">
+              {/* Reduced text size for better proportion */}
+              <h1 className="text-4xl lg:text-6xl leading-tight font-bold tracking-tight">
                 <span className="text-white">Arbaz Ali</span>
                 <br />
                 <motion.span
-                  className="text-white/60 hover:text-white transition duration-500"
-                  animate={{ x: [0, 5, 0] }}
-                  transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+                  className="bg-gradient-to-r from-blue-400 via-cyan-400 to-emerald-400 text-transparent bg-clip-text inline-block mt-2"
+                  animate={{ backgroundPosition: ["0%", "100%", "0%"] }}
+                  transition={{ duration: 8, repeat: Infinity, ease: "linear" }}
+                  style={{ backgroundSize: "200% auto" }}
                 >
                   Full Stack Web Developer
                 </motion.span>
               </h1>
-              <p className="text-lg text-white/60 max-w-lg leading-relaxed">
+              <p className="text-base lg:text-lg text-white/60 max-w-lg leading-relaxed font-light">
                 I design and develop modern, responsive, and high-performance web
                 applications. Focused on clean UI, smooth interactions, and scalable
-                solutions using the MERN stack.
+                solutions using the <span className="text-white/90 font-medium">MERN stack</span>.
               </p>
             </div>
           </div>
 
           {/* Resume & Stats */}
-          <div className="flex flex-wrap items-center gap-6">
+          <div className="flex flex-wrap items-center gap-8">
             <a
               href="/Arbaz_Resume2026.pdf"
               download
-              className="px-6 py-3 rounded-xl bg-white/10 border border-white/20 
-              backdrop-blur-lg text-white hover:bg-white/20 
-              hover:-translate-y-1 transition-all duration-300 flex items-center gap-2"
+              className="group relative px-6 py-3 rounded-xl bg-white/5 border border-white/10 
+              backdrop-blur-md text-white hover:bg-white/10 
+              hover:border-white/30 transition-all duration-300 flex items-center gap-2 overflow-hidden"
             >
-              <Download size={18} /> Resume
+              <div className="absolute inset-0 bg-gradient-to-r from-blue-500/20 to-emerald-500/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+              <Download size={18} className="relative z-10 group-hover:-translate-y-1 transition-transform" /> 
+              <span className="relative z-10">Resume</span>
             </a>
 
-            <div className="flex gap-6 text-sm text-white/50">
-              <div>
-                <p className="text-white text-lg">2+</p>
-                <p>Years Learning</p>
+            <div className="flex gap-8 text-sm text-white/50">
+              <div className="flex flex-col">
+                <span className="text-white text-2xl lg:text-3xl font-bold">2+</span>
+                <span className="tracking-wider uppercase text-[10px] mt-1">Years Exp</span>
               </div>
-              <div>
-                <p className="text-white text-lg">15+</p>
-                <p>Projects Built</p>
+              <div className="w-[1px] h-10 bg-white/10"></div>
+              <div className="flex flex-col">
+                <span className="text-white text-2xl lg:text-3xl font-bold">15+</span>
+                <span className="tracking-wider uppercase text-[10px] mt-1">Projects</span>
               </div>
             </div>
           </div>
 
           {/* Social Icons */}
-          <div className="flex gap-5 pt-4">
-            {[Instagram, Linkedin, Youtube, Facebook].map((Icon, i) => (
+          <div className="flex gap-4 pt-2">
+            {socialLinks.map(({ Icon, name }, i) => (
               <div
                 key={i}
-                className="group p-2 border border-white/10 rounded-lg bg-white/5 
-                hover:bg-white/20 hover:scale-110 transition duration-300 cursor-pointer relative"
+                className="group p-3 border border-white/5 rounded-xl bg-white/5 
+                hover:bg-white/10 hover:border-white/20 hover:-translate-y-1 transition-all duration-300 cursor-pointer relative shadow-lg"
               >
-                <Icon size={20} />
-                <span className="absolute -top-7 left-1/2 -translate-x-1/2 px-2 py-1 text-xs bg-white/20 rounded opacity-0 group-hover:opacity-100 transition">
-                  {Icon.name}
+                <Icon size={20} className="text-white/70 group-hover:text-white transition-colors" />
+                <span className="absolute -top-10 left-1/2 -translate-x-1/2 px-3 py-1.5 text-xs font-medium bg-[#111] border border-white/10 rounded-lg opacity-0 group-hover:opacity-100 transition-all duration-300 shadow-xl pointer-events-none">
+                  {name}
                 </span>
               </div>
             ))}
@@ -101,78 +117,77 @@ const Header = () => {
         </motion.div>
 
         {/* RIGHT SIDE IMAGE */}
-        <div className="relative flex justify-center">
+        <div className="relative flex justify-center items-center mt-10 lg:mt-0">
           <motion.div
-            whileHover={{ rotateY: 10, rotateX: 5 }}
+            whileHover={{ rotateY: 5, rotateX: 5 }}
             animate={{ y: [0, -15, 0] }}
             transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-            className="relative"
+            className="relative z-10"
           >
-            <div className="absolute -top-6 -left-6 w-full h-full border border-white/20 rounded-3xl"></div>
+            <div className="absolute inset-0 border border-white/10 rounded-[2.5rem] rotate-3 scale-105 bg-gradient-to-br from-white/5 to-transparent backdrop-blur-3xl -z-10"></div>
 
+            {/* Slightly reduced image size */}
             <img
               src={image}
               alt="Arbaz Ali"
-              className="relative lg:h-[480px] lg:w-[420px] 
-              object-cover object-top rounded-3xl 
-              border border-white/20 
-              shadow-[0_0_60px_-20px_rgba(255,255,255,0.15)]"
+              className="relative lg:h-[420px] lg:w-[380px] 
+              object-cover object-top rounded-[2rem] 
+              border border-white/10 
+              shadow-[0_0_80px_-20px_rgba(59,130,246,0.15)] bg-[#0a0a0a]"
             />
 
-            {/* Floating Glass Badges */}
             <motion.div
               animate={{ y: [0, -10, 0] }}
-              transition={{ duration: 4, repeat: Infinity }}
-              className="absolute -top-5 right-0 px-4 py-2 text-sm 
-              bg-white/10 border border-white/20 backdrop-blur-md 
-              rounded-xl text-white"
+              transition={{ duration: 4, repeat: Infinity, delay: 0.5 }}
+              className="absolute -top-4 right-[-20px] lg:right-[-40px] px-4 py-2 text-sm font-medium
+              bg-[#0a0a0a]/80 border border-white/10 backdrop-blur-xl 
+              rounded-2xl text-white shadow-2xl"
             >
-              MERN Stack
+              🚀 MERN Stack
             </motion.div>
 
             <motion.div
               animate={{ y: [0, 10, 0] }}
-              transition={{ duration: 5, repeat: Infinity }}
-              className="absolute bottom-8 -left-8 
-  px-5 py-2.5 text-sm font-medium
-  bg-black/60 backdrop-blur-xl
-  border border-white/30
-  rounded-2xl text-white
-  shadow-[0_10px_40px_rgba(0,0,0,0.6)]
-  before:absolute before:inset-0
-  before:rounded-2xl before:bg-white/5"
+              transition={{ duration: 5, repeat: Infinity, delay: 1 }}
+              className="absolute bottom-10 -left-6 lg:-left-12 
+              px-4 py-2 text-sm font-medium
+              bg-gradient-to-r from-[#0a0a0a]/90 to-[#111]/90 backdrop-blur-xl
+              border border-white/10
+              rounded-2xl text-white
+              shadow-2xl"
             >
-              Modern UI
+              ✨ Modern UI
             </motion.div>
 
             <motion.div
-              animate={{ y: [5, -5, 5], rotate: [0, 10, 0] }}
-              transition={{ duration: 6, repeat: Infinity }}
-              className="absolute top-20 left-10 px-4 py-2 text-sm bg-white/10 border border-white/20 backdrop-blur-md rounded-xl text-white"
+              animate={{ y: [5, -5, 5] }}
+              transition={{ duration: 6, repeat: Infinity, delay: 1.5 }}
+              className="absolute top-1/4 -left-8 lg:-left-16 px-4 py-2 text-sm font-medium bg-[#0a0a0a]/80 border border-white/10 backdrop-blur-xl rounded-2xl text-white shadow-2xl"
             >
-              React.js Expert
+              ⚛️ React.js Expert
             </motion.div>
 
-            {/* Circular Orbiting Tech Icons */}
+            {/* Scaled down orbit slightly */}
             <motion.div
               variants={orbitVariants}
               animate="rotate"
-              className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px]"
+              className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[480px] h-[480px] border border-white/5 rounded-full pointer-events-none -z-20"
             >
-              {techIcons.map((Icon, i) => {
+              {techIcons.map(({ Icon, name }, i) => {
                 const angle = (i / techIcons.length) * 360;
                 return (
                   <motion.div
                     key={i}
                     className="absolute top-1/2 left-1/2"
-                    style={{ rotate: `${angle}deg`, x: 150 }}
+                    style={{ rotate: `${angle}deg`, x: 240 }}
                   >
-                    <div className="group p-3 bg-white/10 border border-white/20 rounded-full backdrop-blur-md text-white cursor-pointer">
-                      <Icon size={24} />
-                      <span className="absolute -top-8 left-1/2 -translate-x-1/2 px-2 py-1 text-xs bg-white/20 rounded opacity-0 group-hover:opacity-100 transition">
-                        {Icon.name}
-                      </span>
-                    </div>
+                    <motion.div 
+                      animate={{ rotate: -360 }}
+                      transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+                      className="group p-3 bg-[#111] border border-white/10 rounded-full text-white/70 shadow-lg pointer-events-auto cursor-pointer hover:text-blue-400 hover:border-blue-400/50 transition-colors"
+                    >
+                      <Icon size={20} />
+                    </motion.div>
                   </motion.div>
                 );
               })}
@@ -181,15 +196,21 @@ const Header = () => {
         </div>
       </div>
 
-      {/* Scroll Down Indicator */}
+      {/* Adjusted Scroll Indicator position */}
       <motion.div
-        animate={{ y: [0, 8, 0] }}
-        transition={{ duration: 1.5, repeat: Infinity }}
-        onClick={()=> navigate("/projects")}
-        className="absolute bottom-6 left-1/2 -translate-x-1/2 text-white/40 flex flex-col items-center cursor-pointer"
+        animate={{ y: [0, 10, 0] }}
+        transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+        onClick={() => navigate("/projects")}
+        className="mt-16 text-white/30 flex flex-col items-center cursor-pointer hover:text-white transition-colors group z-20"
       >
-        <ChevronDown size={28} />
-        <span className="mt-1 w-1 h-1 rounded-full bg-white/50 animate-bounce"></span>
+        <span className="text-xs tracking-widest uppercase mb-2 opacity-0 group-hover:opacity-100 transition-opacity">Projects</span>
+        <div className="w-8 h-12 border border-white/20 rounded-full flex justify-center p-1 group-hover:border-white/50 transition-colors">
+          <motion.div 
+            animate={{ y: [0, 16, 0], opacity: [1, 0, 1] }} 
+            transition={{ duration: 2, repeat: Infinity }}
+            className="w-1.5 h-1.5 bg-white rounded-full"
+          />
+        </div>
       </motion.div>
     </div>
   );
