@@ -17,9 +17,25 @@ import HTML_Portfolio from "../assets/HTML_Portfolio.png";
 import HTML_CSS_Portfolio from "../assets/HTML_CSS_Portfolio.png";
 import HTML_CSS_Ecom from "../assets/HTML_CSS_Ecom.png";
 import Todo_Auth from "../assets/Todo_Auth.png";
+import Tshirt from "../assets/T-shirt_store.png";
+import ajrealestate from "../assets/ajrealestate.png";
 
 const projectsData = {
   fullstack: [
+    {
+      title: "Real Estate Website for Aj realestate (Adnan jilani)",
+      desc: "A modern real estate website built with React and Node.js, featuring property listings and contact forms.",
+      link: "https://ajrealestate.pk/",
+      image: ajrealestate,
+      Github: false
+    },
+    {
+      title: "Nextfit E-Commerce Website for T-Shirts",
+      desc: "A responsive and feature-rich e-commerce website for T-shirts built with React and Node.js with dashboard.",
+      link: "https://nextfit-seven.vercel.app/",
+      image: Tshirt,
+      Github: "https://github.com/Arbazali0347/Nextfit",
+    },
     {
       title: "SaaS Background Remover",
       desc: "A complete MERN SaaS Background Remover with modern UI and dynamic sections.",
@@ -243,15 +259,16 @@ const Projects = () => {
                   View Project
                 </a>
               )}
-
-              <a
-                href={project.Github}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="px-4 py-2 rounded-full bg-white/10 hover:bg-white/20"
-              >
-                Source Code
-              </a>
+              {project.Github && (
+                <a
+                  href={project.Github}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="px-4 py-2 rounded-full bg-white/10 hover:bg-white/20"
+                >
+                  Source Code
+                </a>
+              )}
             </div>
           </motion.div>
         ))}
