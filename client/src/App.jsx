@@ -8,6 +8,7 @@ import Contact from './pages/Contact'
 import Blogs from './pages/Blogs'
 import BlogPage from './pages/BlogPage'
 import { Toaster } from "react-hot-toast"
+import NotFound from './pages/NotFound'
 
 const App = () => {
   return (
