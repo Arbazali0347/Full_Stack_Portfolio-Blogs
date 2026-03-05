@@ -22,6 +22,7 @@ import HTML_CSS_Ecom from "../assets/HTML_CSS_Ecom.png";
 import Todo_Auth from "../assets/Todo_Auth.png";
 import Tshirt from "../assets/T-shirt_store.png";
 import ajrealestate from "../assets/ajrealestate.png";
+import GlobalComputer from "../assets/GlobalComputer.png";
 
 const projectsData = {
   fullstack: [
@@ -30,6 +31,13 @@ const projectsData = {
     { title: "SaaS BG Remover", desc: "Dynamic background remover with AI integration.", link: "https://bg-remover-saas-rt79.vercel.app/", image: SaaS, Github: "https://github.com/Arbazali0347/BG-remover-SAAS" },
     { title: "E-Commerce App", desc: "Full-featured MERN store with secure checkout.", link: "https://amchemical.store", image: ECom, Github: "https://github.com/Arbazali0347/AM-E-Commerce" },
     { title: "AI Blogging Platform", desc: "Modern blogging with AI-powered content tools.", link: "https://arbaz-blog-platfrom-38rn.vercel.app/", image: Blogging, Github: "https://github.com/Arbazali0347/Arbaz-blog-platfrom" },
+    {
+      title: "Global Computer Education Center",
+      desc: "A modern education center website showcasing computer courses, admissions, and institute information for students.",
+      link: "https://global-computer-it9u.vercel.app/",
+      image: GlobalComputer,
+      Github: false,
+    }
   ],
   react: [
     { title: "Movie Searcher", desc: "React app fetching data from OMDB API.", link: "https://react-movie-searcher-eta.vercel.app/", image: MovieSearcher, Github: "https://github.com/Arbazali0347/React-Movie-Searcher" },
@@ -81,9 +89,8 @@ const Projects = () => {
           <button
             key={tab.key}
             onClick={() => setActiveTab(tab.key)}
-            className={`relative px-6 py-2.5 rounded-full text-sm font-semibold transition-all duration-300 ${
-              activeTab === tab.key ? "text-white" : "text-gray-500 hover:text-gray-300"
-            }`}
+            className={`relative px-6 py-2.5 rounded-full text-sm font-semibold transition-all duration-300 ${activeTab === tab.key ? "text-white" : "text-gray-500 hover:text-gray-300"
+              }`}
           >
             {activeTab === tab.key && (
               <motion.div
@@ -103,7 +110,7 @@ const Projects = () => {
       </div>
 
       {/* Projects Grid */}
-      <motion.div 
+      <motion.div
         layout
         className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8"
       >
