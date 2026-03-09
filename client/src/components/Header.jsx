@@ -93,7 +93,7 @@ const Header = () => {
               </div>
               <div className="w-[1px] h-10 bg-white/10"></div>
               <div className="flex flex-col">
-                <span className="text-white text-2xl lg:text-3xl font-bold">15+</span>
+                <span className="text-white text-2xl lg:text-3xl font-bold">20+</span>
                 <span className="tracking-wider uppercase text-[10px] mt-1">Projects</span>
               </div>
             </div>

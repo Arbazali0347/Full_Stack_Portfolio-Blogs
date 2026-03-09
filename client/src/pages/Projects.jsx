@@ -23,11 +23,24 @@ import Todo_Auth from "../assets/Todo_Auth.png";
 import Tshirt from "../assets/T-shirt_store.png";
 import ajrealestate from "../assets/ajrealestate.png";
 import GlobalComputer from "../assets/GlobalComputer.png";
+import LinkedIn_Clone from "../assets/LinkedIn_Clone.png";
 
 const projectsData = {
   fullstack: [
-    { title: "Real Estate Website (AJ)", desc: "A premium real estate platform for property listings.", link: "https://ajrealestate.pk/", image: ajrealestate, Github: false },
-    { title: "Nextfit E-Com", desc: "MERN Stack T-shirt store with admin dashboard.", link: "https://nextfit-seven.vercel.app/", image: Tshirt, Github: "https://github.com/Arbazali0347/Nextfit" },
+    {
+      title: "Real Estate Website (AJ)",
+      desc: "A premium real estate platform for property listings.",
+      link: "https://ajrealestate.pk/",
+      image: ajrealestate,
+      Github: false
+    },
+    {
+      title: "Nextfit E-Com",
+      desc: "MERN Stack T-shirt store with admin dashboard.",
+      link: "https://nextfit-seven.vercel.app/",
+      image: Tshirt,
+      Github: "https://github.com/Arbazali0347/Nextfit"
+    },
     { title: "SaaS BG Remover", desc: "Dynamic background remover with AI integration.", link: "https://bg-remover-saas-rt79.vercel.app/", image: SaaS, Github: "https://github.com/Arbazali0347/BG-remover-SAAS" },
     { title: "E-Commerce App", desc: "Full-featured MERN store with secure checkout.", link: "https://amchemical.store", image: ECom, Github: "https://github.com/Arbazali0347/AM-E-Commerce" },
     { title: "AI Blogging Platform", desc: "Modern blogging with AI-powered content tools.", link: "https://arbaz-blog-platfrom-38rn.vercel.app/", image: Blogging, Github: "https://github.com/Arbazali0347/Arbaz-blog-platfrom" },
@@ -42,11 +55,14 @@ const projectsData = {
   react: [
     { title: "Movie Searcher", desc: "React app fetching data from OMDB API.", link: "https://react-movie-searcher-eta.vercel.app/", image: MovieSearcher, Github: "https://github.com/Arbazali0347/React-Movie-Searcher" },
     { title: "React Gallery", desc: "Visual gallery with API-driven images.", link: "https://ract-gallary-app.vercel.app/", image: React_Gallary, Github: "https://github.com/Arbazali0347/Ract_Gallary_APP" },
+    { title: "React Todo List", desc: "The todo list maker with react.", link: "https://todo-app-using-react-lyart.vercel.app/", image: React_Todo, Github: "https://github.com/Arbazali0347/Todo-App-using-React" },
     { title: "Link Shortener", desc: "Clean UI for shortening long URLs.", link: "https://link-shortner-phi-lake.vercel.app/", image: React_LinkShortner, Github: "https://github.com/Arbazali0347/Link-Shortner" },
+    { title: "The Porfolio with react", desc: "The amazing portfolio using react with tailwind", link: "https://react-my-portfolio-chi.vercel.app/", image: React_PortFolio, Github: "https://github.com/Arbazali0347/React-My-Portfolio/" },
   ],
   tailwind: [
     { title: "Dark/Light UI", desc: "Seamless theme switching interface.", link: "https://dark-and-light-ruby.vercel.app/", image: Dark, Github: "https://github.com/Arbazali0347/Dark-and-Light" },
     { title: "About UI Design", desc: "Modern About page with Glassmorphism.", link: "https://my-project-tailwind.vercel.app/", image: MyAbout, Github: "https://github.com/Arbazali0347/My-About-Project" },
+    { title: "LinkedIn Login page clone", desc: "The Same design of LinkedIn in Login page.", link: false, image: LinkedIn_Clone, Github: false },
   ],
   node: [
     { title: "Profile Auth App", desc: "Secure Node.js authentication system.", link: false, image: NodeProfile, Github: "https://github.com/Arbazali0347/Profile-Auth-Node-Express" },
@@ -55,6 +71,27 @@ const projectsData = {
   css: [
     { title: "Saqlain Clone", desc: "Pixel perfect UI clone of a portfolio.", link: "https://arbazali0347.github.io/Saqlain-website-clone/", image: Saqlain_Website_Clone, Github: "https://github.com/Arbazali0347/Saqlain-website-clone" },
     { title: "Uncrypt Messenger", desc: "Modern chat interface layout.", link: "https://arbazali0347.github.io/Text-Messanger/", image: JavaScript_messanger, Github: "https://github.com/Arbazali0347/Text-Messanger/" },
+    {
+      title: "Static E-commerce design",
+      desc: "The Amazing E-commerce design using with HTML_CSS.",
+      link: "https://arbazali0347.github.io/E-commerce-HTML-CSS/",
+      image: HTML_CSS_Ecom,
+      Github: "https://github.com/Arbazali0347/E-commerce-HTML-CSS/"
+    },
+    {
+      title: "The first Portfolio",
+      desc: "The first portfolio design using with HTML_CSS.",
+      link: "https://arbazali0347.github.io/HTML_CSS_Portfolio/",
+      image: HTML_CSS_Portfolio,
+      Github: "https://github.com/Arbazali0347/HTML_CSS_Portfolio"
+    },
+    {
+      title: "The white theme portfolio",
+      desc: "The white theme portfolio design using with HTML_CSS.",
+      link: "https://arbazali0347.github.io/Arbazali-HTML-Portfolio/",
+      image: HTML_Portfolio,
+      Github: "https://github.com/Arbazali0347/Arbazali-HTML-Portfolio/"
+    },
   ],
 };
 
