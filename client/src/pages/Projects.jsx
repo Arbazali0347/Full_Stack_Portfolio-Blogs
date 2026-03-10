@@ -29,27 +29,50 @@ const projectsData = {
   fullstack: [
     {
       title: "Real Estate Website (AJ)",
-      desc: "A premium real estate platform for property listings.",
+      desc: "A modern real estate platform for showcasing property listings and capturing buyer inquiries. Helps agencies present properties professionally and manage leads online. Built with React, Node.js, Express, and MongoDB.",
       link: "https://ajrealestate.pk/",
       image: ajrealestate,
       Github: false
     },
+
     {
-      title: "Nextfit E-Com",
-      desc: "MERN Stack T-shirt store with admin dashboard.",
+      title: "Nextfit E-Commerce",
+      desc: "A full-stack T-shirt store with product management and admin dashboard. Allows businesses to sell products online and manage orders efficiently. Built with MERN Stack (MongoDB, Express, React, Node.js).",
       link: "https://nextfit-seven.vercel.app/",
       image: Tshirt,
       Github: "https://github.com/Arbazali0347/Nextfit"
     },
-    { title: "SaaS BG Remover", desc: "Dynamic background remover with AI integration.", link: "https://bg-remover-saas-rt79.vercel.app/", image: SaaS, Github: "https://github.com/Arbazali0347/BG-remover-SAAS" },
-    { title: "E-Commerce App", desc: "Full-featured MERN store with secure checkout.", link: "https://amchemical.store", image: ECom, Github: "https://github.com/Arbazali0347/AM-E-Commerce" },
-    { title: "AI Blogging Platform", desc: "Modern blogging with AI-powered content tools.", link: "https://arbaz-blog-platfrom-38rn.vercel.app/", image: Blogging, Github: "https://github.com/Arbazali0347/Arbaz-blog-platfrom" },
+
+    {
+      title: "SaaS BG Remover",
+      desc: "An AI-powered background remover that processes images instantly. Helps creators and businesses generate clean product images without manual editing. Built with React, Node.js, and AI API integration.",
+      link: "https://bg-remover-saas-rt79.vercel.app/",
+      image: SaaS,
+      Github: "https://github.com/Arbazali0347/BG-remover-SAAS"
+    },
+
+    {
+      title: "AM Chemical E-Commerce",
+      desc: "A complete e-commerce platform for selling chemical products online. Includes product management, secure checkout, and order handling. Built with MERN Stack (MongoDB, Express, React, Node.js).",
+      link: "https://amchemical.store",
+      image: ECom,
+      Github: "https://github.com/Arbazali0347/AM-E-Commerce"
+    },
+
+    {
+      title: "AI Blogging Platform",
+      desc: "A modern blogging platform with AI-assisted content tools. Allows users to write, publish, and manage blog posts easily. Built with MERN Stack and integrated AI features.",
+      link: "https://arbaz-blog-platfrom-38rn.vercel.app/",
+      image: Blogging,
+      Github: "https://github.com/Arbazali0347/Arbaz-blog-platfrom"
+    },
+
     {
       title: "Global Computer Education Center",
-      desc: "A modern education center website showcasing computer courses, admissions, and institute information for students.",
+      desc: "A professional education institute website for showcasing courses and admissions. Helps students explore programs and contact the institute easily. Built with React and modern responsive design.",
       link: "https://global-computer-it9u.vercel.app/",
       image: GlobalComputer,
-      Github: false,
+      Github: false
     }
   ],
   react: [
