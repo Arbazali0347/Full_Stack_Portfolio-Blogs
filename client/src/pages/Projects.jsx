@@ -42,7 +42,13 @@ const projectsData = {
       image: Tshirt,
       Github: "https://github.com/Arbazali0347/Nextfit"
     },
-
+    {
+      title: "Global Computer Education Center",
+      desc: "A professional education institute website for showcasing courses and admissions. Helps students explore programs and contact the institute easily. Built with React and modern responsive design.",
+      link: "https://global-computer-it9u.vercel.app/",
+      image: GlobalComputer,
+      Github: false
+    },
     {
       title: "SaaS BG Remover",
       desc: "An AI-powered background remover that processes images instantly. Helps creators and businesses generate clean product images without manual editing. Built with React, Node.js, and AI API integration.",
@@ -67,13 +73,6 @@ const projectsData = {
       Github: "https://github.com/Arbazali0347/Arbaz-blog-platfrom"
     },
 
-    {
-      title: "Global Computer Education Center",
-      desc: "A professional education institute website for showcasing courses and admissions. Helps students explore programs and contact the institute easily. Built with React and modern responsive design.",
-      link: "https://global-computer-it9u.vercel.app/",
-      image: GlobalComputer,
-      Github: false
-    }
   ],
   react: [
     { title: "Movie Searcher", desc: "React app fetching data from OMDB API.", link: "https://react-movie-searcher-eta.vercel.app/", image: MovieSearcher, Github: "https://github.com/Arbazali0347/React-Movie-Searcher" },
