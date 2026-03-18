@@ -24,6 +24,7 @@ import Tshirt from "../assets/T-shirt_store.png";
 import ajrealestate from "../assets/ajrealestate.png";
 import GlobalComputer from "../assets/GlobalComputer.png";
 import LinkedIn_Clone from "../assets/LinkedIn_Clone.png";
+import arofeature from "../assets/arofeature.png";
 
 const projectsData = {
   fullstack: [
@@ -48,6 +49,13 @@ const projectsData = {
       link: "https://global-computer-it9u.vercel.app/",
       image: GlobalComputer,
       Github: false
+    },
+    {
+      title: "AroFeature - Feature Feedback SaaS",
+      desc: "A modern SaaS platform that helps businesses collect user feedback, prioritize ideas, and build features that users actually want. Includes voting system, feedback management, and a clean AI-powered UI. Built with MERN stack.",
+      link: "https://aro-feature-frontend.vercel.app/",
+      image: arofeature,
+      Github: "https://github.com/Arbazali0347/AroFeature"
     },
     {
       title: "SaaS BG Remover",
