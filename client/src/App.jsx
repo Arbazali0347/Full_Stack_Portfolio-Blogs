@@ -11,6 +11,7 @@ import { Toaster } from "react-hot-toast"
 import NotFound from './pages/NotFound'
 import Backdrop from './components/Backdrop'
 import ScrollToTop from './components/Top'
+import BeforeAfterPage from './pages/BeforeAfterPage'
 
 const App = () => {
   return (
@@ -26,7 +27,7 @@ const App = () => {
           <Route path='/contact' element={<Contact />} />
           <Route path='/blogs' element={<Blogs />} />
           <Route path='/blogs/:id' element={<BlogPage />} />
-
+          <Route path='before-after' element={<BeforeAfterPage />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </div>
