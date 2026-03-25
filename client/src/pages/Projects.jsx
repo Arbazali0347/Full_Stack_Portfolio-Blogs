@@ -25,9 +25,17 @@ import ajrealestate from "../assets/ajrealestate.png";
 import GlobalComputer from "../assets/GlobalComputer.png";
 import LinkedIn_Clone from "../assets/LinkedIn_Clone.png";
 import arofeature from "../assets/arofeature.png";
+import DentalMax from "../assets/Dentist-web.png";
 
 const projectsData = {
   fullstack: [
+    {
+      title: "DentalMax Elite",
+      desc: "High-end dental clinic platform featuring AI-driven diagnostics, surgical precision layouts, and a dark-themed luxury UI.",
+      link: "https://dentist-web-aro.vercel.app/",
+      image: DentalMax,
+      Github: false,
+    },
     {
       title: "Real Estate Website (AJ)",
       desc: "A modern real estate platform for showcasing property listings and capturing buyer inquiries. Helps agencies present properties professionally and manage leads online. Built with React, Node.js, Express, and MongoDB.",
@@ -35,7 +43,6 @@ const projectsData = {
       image: ajrealestate,
       Github: false
     },
-
     {
       title: "Nextfit E-Commerce",
       desc: "A full-stack T-shirt store with product management and admin dashboard. Allows businesses to sell products online and manage orders efficiently. Built with MERN Stack (MongoDB, Express, React, Node.js).",
