@@ -26,9 +26,17 @@ import GlobalComputer from "../assets/GlobalComputer.png";
 import LinkedIn_Clone from "../assets/LinkedIn_Clone.png";
 import arofeature from "../assets/arofeature.png";
 import DentalMax from "../assets/Dentist-web.png";
+import yumspot from "../assets/yumspot.png";
 
 const projectsData = {
   fullstack: [
+    {
+      title: "YumSpot Restaurant",
+      desc: "Modern and responsive restaurant website built for a fries & pizza fries brand, featuring a clean UI, full menu showcase, and smooth user experience.",
+      link: "https://yum-spot-aro.vercel.app/",
+      image: yumspot,
+      Github: false,
+    },
     {
       title: "DentalMax Elite",
       desc: "High-end dental clinic platform featuring AI-driven diagnostics, surgical precision layouts, and a dark-themed luxury UI.",
