@@ -23,6 +23,7 @@ import Todo_Auth from "../assets/Todo_Auth.png";
 import Tshirt from "../assets/T-shirt_store.png";
 import ajrealestate from "../assets/ajrealestate.png";
 import GlobalComputer from "../assets/GlobalComputer.png";
+import perfume from "../assets/perfume_img.png";
 import LinkedIn_Clone from "../assets/LinkedIn_Clone.png";
 import arofeature from "../assets/arofeature.png";
 import DentalMax from "../assets/Dentist-web.png";
@@ -98,6 +99,7 @@ const projectsData = {
 
   ],
   react: [
+    { title: "Zalvyn Perfume Brand Store", desc: "Beautifull design with brand theme and responsive website.", link: "https://zalvyn-website-aro.vercel.app/", image: perfume, Github: false },
     { title: "Movie Searcher", desc: "React app fetching data from OMDB API.", link: "https://react-movie-searcher-eta.vercel.app/", image: MovieSearcher, Github: "https://github.com/Arbazali0347/React-Movie-Searcher" },
     { title: "React Gallery", desc: "Visual gallery with API-driven images.", link: "https://ract-gallary-app.vercel.app/", image: React_Gallary, Github: "https://github.com/Arbazali0347/Ract_Gallary_APP" },
     { title: "React Todo List", desc: "The todo list maker with react.", link: "https://todo-app-using-react-lyart.vercel.app/", image: React_Todo, Github: "https://github.com/Arbazali0347/Todo-App-using-React" },
