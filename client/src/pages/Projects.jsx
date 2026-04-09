@@ -53,11 +53,11 @@ const projectsData = {
       Github: false
     },
     {
-      title: "Nextfit E-Commerce",
-      desc: "A full-stack T-shirt store with product management and admin dashboard. Allows businesses to sell products online and manage orders efficiently. Built with MERN Stack (MongoDB, Express, React, Node.js).",
+      title: "GARB Brand full-Store",
+      desc: "A full-stack Cloths store with product management and admin dashboard. Allows businesses to sell products online and manage orders efficiently. Built with MERN Stack (MongoDB, Express, React, Node.js).",
       link: "https://nextfit-seven.vercel.app/",
       image: Tshirt,
-      Github: "https://github.com/Arbazali0347/Nextfit"
+      Github: false
     },
     {
       title: "Global Computer Education Center",
