@@ -28,14 +28,22 @@ import LinkedIn_Clone from "../assets/LinkedIn_Clone.png";
 import arofeature from "../assets/arofeature.png";
 import DentalMax from "../assets/Dentist-web.png";
 import yumspot from "../assets/yumspot.png";
+import makImage from "../assets/makImage.png";
 
 const projectsData = {
   fullstack: [
     {
-      title: "YumSpot Restaurant",
+      title: "YumSpot Crunch fries & pizza fries",
       desc: "Modern and responsive restaurant website built for a fries & pizza fries brand, featuring a clean UI, full menu showcase, and smooth user experience.",
       link: "https://yum-spot-aro.vercel.app/",
       image: yumspot,
+      Github: false,
+    },
+    {
+      title: "Mak Men's Salon",
+      desc: "A stylish salon website for Mak Men's Salon, showcasing services, team, and booking options with a sleek design and user-friendly interface.",
+      link: "https://mak-men-salon-aro.vercel.app/",
+      image: makImage,
       Github: false,
     },
     {
