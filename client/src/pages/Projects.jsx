@@ -29,9 +29,25 @@ import arofeature from "../assets/arofeature.png";
 import DentalMax from "../assets/Dentist-web.png";
 import yumspot from "../assets/yumspot.png";
 import makImage from "../assets/makImage.png";
+import Guitar from "../assets/Guitar.png";
+import pk from "../assets/PK.png";
 
 const projectsData = {
   fullstack: [
+    {
+      title: "Zee Guitar Brand Website",
+      desc: "A morden Zee Guitar brand website with a sleek design, showcasing products and features. Built with React and Tailwind CSS for a responsive and engaging user experience. ",
+      link: "https://zee-guitar-aro.vercel.app/",
+      image: Guitar,
+      Github: false,
+    },
+    {
+      title: "PK Fashion Fairy E-Commerce Store",
+      desc: "A modern e-commerce platform for selling fashion products online. Includes product management, secure checkout, and order handling. Built with MERN Stack (MongoDB, Express, React, Node.js).",
+      link: "http://pk-fashion-fairy-aro.vercel.app/",
+      image: pk,
+      Github: false,
+    },
     {
       title: "YumSpot Crunch fries & pizza fries",
       desc: "Modern and responsive restaurant website built for a fries & pizza fries brand, featuring a clean UI, full menu showcase, and smooth user experience.",
