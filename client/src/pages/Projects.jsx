@@ -31,9 +31,17 @@ import yumspot from "../assets/yumspot.png";
 import makImage from "../assets/makImage.png";
 import Guitar from "../assets/Guitar.png";
 import pk from "../assets/PK.png";
+import chanoor from "../assets/chanoor.png";
 
 const projectsData = {
   fullstack: [
+    {
+      title: "Chanoor Jewelries Brand Website",
+      desc: "A modern Chanoor Jewelries brand website with a sleek design, showcasing products and features. Built with React and Tailwind CSS for a responsive and engaging user experience. ",
+      link: "https://chanoor.store/",
+      image: chanoor,
+      Github: false,
+    },
     {
       title: "Zee Guitar Brand Website",
       desc: "A morden Zee Guitar brand website with a sleek design, showcasing products and features. Built with React and Tailwind CSS for a responsive and engaging user experience. ",
