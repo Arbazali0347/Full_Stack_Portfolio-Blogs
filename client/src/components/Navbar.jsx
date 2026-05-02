@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Send } from "lucide-react"; // Added Send icon
 import { motion, AnimatePresence } from "framer-motion";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 
@@ -41,8 +41,16 @@ const Navbar = () => {
         { name: "Contact", path: "/contact" },
     ];
 
+    // Function to handle the Hire Me action
+    const handleHireMe = () => {
+        // Option 1: Navigate to contact page
+        navigate("/contact");
+        // Option 2: Open WhatsApp (Uncomment below if you want direct WhatsApp)
+        // window.open("https://wa.me/yourphonenumber", "_blank");
+        setMenu(false);
+    };
+
     return (
-        // Removed bg-[#050505] to let the global Backdrop show behind it
         <div className="sticky top-0 z-50 w-full pt-6 pb-4 px-4 flex justify-center">
             <motion.div
                 initial={{ opacity: 0, y: -20 }}
@@ -81,11 +89,17 @@ const Navbar = () => {
                     ))}
                 </div>
 
+                {/* NEW HIRE ME BUTTON */}
                 <button
-                    className="hidden lg:block px-6 py-2.5 text-sm font-semibold bg-white text-black rounded-xl hover:bg-transparent hover:text-white hover:border hover:border-white/30 border border-transparent transition-all duration-300 shadow-[0_0_20px_rgba(255,255,255,0.1)] hover:shadow-[0_0_20px_rgba(255,255,255,0.2)]"
-                    onClick={() => window.open("https://arbazali.framer.website", "_blank")}
+                    className="hidden lg:flex items-center gap-2 px-6 py-2.5 text-sm font-semibold bg-white text-black rounded-xl hover:bg-transparent hover:text-white hover:border hover:border-white/30 border border-transparent transition-all duration-300 shadow-[0_0_20px_rgba(255,255,255,0.1)] hover:shadow-[0_0_20px_rgba(59,130,246,0.3)] group"
+                    onClick={handleHireMe}
                 >
-                    Website
+                    <span className="relative flex h-2 w-2">
+                        <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                        <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+                    </span>
+                    Hire Me
+                    <Send size={14} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform duration-300" />
                 </button>
 
                 <div className="lg:hidden flex items-center">
@@ -144,17 +158,16 @@ const Navbar = () => {
                                 ))}
                             </div>
 
+                            {/* MOBILE HIRE ME BUTTON */}
                             <motion.button
                                 initial={{ opacity: 0, y: 20 }}
                                 animate={{ opacity: 1, y: 0 }}
                                 transition={{ delay: 0.5 }}
-                                className="mt-auto mb-12 w-full px-6 py-4 text-center font-semibold bg-gradient-to-r from-blue-600 to-emerald-600 text-white rounded-xl shadow-lg"
-                                onClick={() => {
-                                    setMenu(false);
-                                    window.open("https://arbazali.framer.website", "_blank");
-                                }}
+                                className="mt-auto mb-12 w-full px-6 py-4 flex items-center justify-center gap-3 font-semibold bg-gradient-to-r from-blue-600 to-emerald-600 text-white rounded-xl shadow-lg active:scale-95 transition-transform"
+                                onClick={handleHireMe}
                             >
-                                Visit Website
+                                <Send size={18} />
+                                Start a Project
                             </motion.button>
                         </motion.div>
                     </motion.div>

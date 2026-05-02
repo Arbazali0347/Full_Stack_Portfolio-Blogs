@@ -12,6 +12,7 @@ import NotFound from './pages/NotFound'
 import Backdrop from './components/Backdrop'
 import ScrollToTop from './components/Top'
 import BeforeAfterPage from './pages/BeforeAfterPage'
+import Footer from './components/Footer'
 
 const App = () => {
   return (
@@ -30,6 +31,7 @@ const App = () => {
           <Route path='before-after' element={<BeforeAfterPage />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
+        <Footer />
       </div>
   )
 }
