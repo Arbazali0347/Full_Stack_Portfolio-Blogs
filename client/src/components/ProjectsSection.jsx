@@ -1,9 +1,9 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { ExternalLink, Globe, CheckCircle2, AlertCircle } from "lucide-react";
-import chanoor from "../assets/chanoor.png";
-import ajrealestate from "../assets/ajrealestate.png";
-import ECom from "../assets/ECom.png";
+import chanoor from "../assets/chanoor-home.png";
+import ajrealestate from "../assets/realestate-home.png";
+import ECom from "../assets/Chemical-home.png";
 
 // Images import (Replace these with your actual paths)
 // import chanoor from "../assets/chanoor.png";
