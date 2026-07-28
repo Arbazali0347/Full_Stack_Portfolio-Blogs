@@ -18,7 +18,6 @@ const App = () => {
   return (
       <div>
         <ScrollToTop/>
-        <Backdrop/>
         <Toaster/>
         <Navbar />
         <Routes>

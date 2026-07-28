@@ -1,123 +1,89 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { 
-  MessageSquare, 
-  Smartphone, 
-  Code2, 
-  Zap, 
-  ShieldCheck, 
-  TrendingUp 
-} from "lucide-react";
+import { Sparkles, Zap, ShieldCheck, HeartHandshake, Eye } from "lucide-react";
 
-const reasons = [
-  {
-    title: "Fast Communication",
-    desc: "I am always reachable. No ghosting—just clear updates and quick responses to ensure your project stays on track and deadlines are met.",
-    icon: MessageSquare,
-    gradient: "from-blue-500 to-cyan-400"
-  },
-  {
-    title: "Business-Focused Solutions",
-    desc: "I don't just write code; I build tools designed to increase your sales, automate your workflow, and drive real business growth.",
-    icon: TrendingUp,
-    gradient: "from-emerald-500 to-teal-400"
-  },
-  {
-    title: "Modern UI/UX Design",
-    desc: "Your project will look modern, sleek, and premium. I focus on high-end aesthetics that leave a lasting impression on your users.",
-    icon: Zap,
-    gradient: "from-purple-500 to-blue-400"
-  },
-  {
-    title: "Scalable Clean Code",
-    desc: "I follow industry-standard coding practices with the MERN Stack, ensuring your application is easy to maintain and scale as you grow.",
-    icon: Code2,
-    gradient: "from-orange-500 to-red-400"
-  },
-  {
-    title: "Mobile First Approach",
-    desc: "With 70% of traffic coming from mobile, I ensure every website is pixel-perfect and fully responsive across all device sizes.",
-    icon: Smartphone,
-    gradient: "from-pink-500 to-rose-400"
-  },
-  {
-    title: "Post-Delivery Support",
-    desc: "My commitment doesn't end at delivery. I provide ongoing support for updates, maintenance, and bug fixes whenever you need me.",
-    icon: ShieldCheck,
-    gradient: "from-cyan-500 to-blue-500"
-  }
-];
+const WhyChooseMe = () => {
+  const reasons = [
+    {
+      title: "Blazing Fast Performance",
+      description: "Optimized, lightweight, and lag-free code for seamless loading speeds.",
+      icon: <Zap size={20} className="text-orange-500" />,
+    },
+    {
+      title: "Clean & Modern Design",
+      description: "Sleek, eye-catching, and user-friendly layouts tailored to your brand identity.",
+      icon: <Eye size={20} className="text-orange-500" />,
+    },
+    {
+      title: "Secure & Scalable",
+      description: "Built with industry-standard MERN & Next.js practices for complete peace of mind.",
+      icon: <ShieldCheck size={20} className="text-orange-500" />,
+    },
+    {
+      title: "Dedicated Support",
+      description: "Clear communication, transparent workflow, and reliable post-launch assistance.",
+      icon: <HeartHandshake size={20} className="text-orange-500" />,
+    },
+  ];
 
-const WhyMe = () => {
   return (
-    <section className="py-24 px-6 lg:px-16 relative overflow-hidden">
-      {/* Subtle Background Glow */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-[radial-gradient(circle_at_center,rgba(59,130,246,0.03)_0%,transparent_70%)] -z-10"></div>
+    <section className="bg-[#020202] py-24 px-6 lg:px-16 relative overflow-hidden">
+      
+      {/* ── SUBTLE AMBIENT BACKGROUND GLOW ── */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[550px] h-[350px] bg-[radial-gradient(circle,rgba(234,88,12,0.04)_0%,rgba(0,0,0,0)_70%)] blur-[90px] pointer-events-none -z-10" />
 
-      <div className="max-w-7xl mx-auto">
-        {/* Section Title */}
-        <div className="text-center mb-20 space-y-4">
-          <motion.p 
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            className="text-emerald-400 font-mono tracking-widest uppercase text-sm"
-          >
-            Why Choose Me
-          </motion.p>
-          <motion.h2 
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            className="text-4xl lg:text-6xl font-bold text-white"
-          >
-            Turning Visions Into <span className="text-blue-500">Reality</span>
-          </motion.h2>
-          <div className="w-24 h-1 bg-blue-500 mx-auto rounded-full"></div>
+      <div className="max-w-6xl mx-auto">
+        
+        {/* ── COMPACT HEADER ── */}
+        <div className="flex flex-col items-center text-center mb-16 space-y-3">
+          <div className="flex items-center gap-2 px-3.5 py-1.5 bg-orange-500/10 border border-orange-500/20 rounded-full text-[10px] font-bold tracking-widest text-orange-500 shadow-[inset_0_1px_2px_rgba(255,255,255,0.02)]">
+            <Sparkles size={11} className="animate-pulse" />
+            <span>MY ADVANTAGE</span>
+          </div>
+          <h2 className="text-3xl sm:text-4xl font-black uppercase tracking-tight text-white">
+            Why Work <span className="bg-gradient-to-r from-orange-500 to-orange-600 bg-clip-text text-transparent">With Me</span>
+          </h2>
+          <div className="w-10 h-[2.5px] bg-orange-500 rounded-full shadow-[0_0_12px_rgba(234,88,12,0.6)]" />
         </div>
 
-        {/* Grid Container */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {/* ── COMPACT MICRO-CARDS GRID ── */}
+        <div className="grid sm:grid-cols-2 gap-6 relative z-10">
           {reasons.map((item, index) => (
             <motion.div
               key={index}
-              initial={{ opacity: 0, scale: 0.9 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.4, delay: index * 0.08 }}
               viewport={{ once: true }}
-              whileHover={{ y: -8 }}
-              className="group p-8 rounded-[2.5rem] bg-white/5 border border-white/10 backdrop-blur-sm transition-all duration-300 hover:bg-white/10 hover:border-white/20 will-change-transform"
+              className="group relative p-6 rounded-[1.75rem] bg-[#0c0c0e]/30 border border-white/[0.03] backdrop-blur-md hover:border-orange-500/20 hover:bg-[#0c0c0e]/70 transition-all duration-300 flex gap-4 items-start"
             >
-              {/* Icon Container with Gradient Glow */}
-              <div className="relative w-14 h-14 mb-6">
-                <div className={`absolute inset-0 bg-gradient-to-br ${item.gradient} blur-xl opacity-20 group-hover:opacity-40 transition-opacity`}></div>
-                <div className={`relative w-full h-full rounded-2xl bg-gradient-to-br ${item.gradient} flex items-center justify-center text-white shadow-lg`}>
-                  <item.icon size={28} />
-                </div>
+              {/* Internal Accent Light Overlay */}
+              <div className="absolute inset-0 bg-gradient-to-br from-orange-500/[0.01] via-transparent to-transparent pointer-events-none rounded-[1.75rem]" />
+
+              {/* Glowing Left Indicator Strip */}
+              <div className="absolute left-0 top-1/4 bottom-1/4 w-[2px] bg-orange-500 scale-y-0 group-hover:scale-y-100 transition-transform duration-300 origin-center rounded-r-full shadow-[0_0_8px_rgba(234,88,12,0.8)]" />
+
+              {/* Micro Icon Container */}
+              <div className="p-3 rounded-xl bg-orange-500/10 border border-orange-500/15 flex items-center justify-center shrink-0 group-hover:scale-105 group-hover:bg-orange-500/20 transition-all duration-300 shadow-[inset_0_1px_2px_rgba(255,255,255,0.02)]">
+                {item.icon}
               </div>
 
-              <h3 className="text-xl font-bold text-white mb-3 group-hover:text-blue-400 transition-colors">
-                {item.title}
-              </h3>
-              <p className="text-white/50 text-sm leading-relaxed font-light">
-                {item.desc}
-              </p>
+              {/* Content Space (Super Clean Typography) */}
+              <div className="space-y-1.5 pt-0.5">
+                <h4 className="text-white font-bold text-sm sm:text-base group-hover:text-orange-500 transition-colors duration-300">
+                  {item.title}
+                </h4>
+                <p className="text-zinc-400 font-light text-xs sm:text-sm leading-relaxed">
+                  {item.description}
+                </p>
+              </div>
             </motion.div>
           ))}
         </div>
 
-        {/* Closing Trust Tagline */}
-        <motion.div 
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ delay: 0.5 }}
-          className="mt-20 text-center"
-        >
-          <p className="text-white/30 text-lg italic font-light">
-            "I don't just write code; I design high-performance digital experiences."
-          </p>
-        </motion.div>
       </div>
     </section>
   );
 };
 
-export default WhyMe;
+export default WhyChooseMe;

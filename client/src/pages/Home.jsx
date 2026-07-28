@@ -5,18 +5,22 @@ import Services from '../components/Services'
 import ProjectsSection from '../components/ProjectsSection'
 import WhyMe from '../components/WhyMe'
 import Testimonials from '../components/Testimonials'
-import AboutMe from '../components/AboutMe'
+import TechTicker from '../components/TechTicker'
+import LogoMarquee from '../components/LogoMarquee'
+import About from '../components/ShortAbout'
 
 const Home = () => {
   const { name } = useContext(AppContextProvider)
   return (
     <div>
       <Header />
-      <Services />
+      <TechTicker />
+      <LogoMarquee />
       <ProjectsSection />
-      <WhyMe/>
-      <Testimonials/>
-      <AboutMe />
+      <Services />
+      <WhyMe />
+      <Testimonials />
+      <About/>
     </div>
   )
 }

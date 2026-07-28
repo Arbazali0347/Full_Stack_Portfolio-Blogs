@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ExternalLink, Github, Code2, Globe } from "lucide-react";
+import { Github, Globe, Sparkles } from "lucide-react";
 
 // Assets (Aap ke existing imports)
 import SaaS from "../assets/SaaS.png";
@@ -32,9 +32,49 @@ import makImage from "../assets/makImage.png";
 import Guitar from "../assets/Guitar.png";
 import pk from "../assets/PK.png";
 import chanoor from "../assets/chanoor.png";
+import tradeAlphaZone from "../assets/trade-alpha-zone.png";
+import skillbox from "../assets/skill-box.png";
+import nzCollection from "../assets/nz-collection.png";
+import minza from "../assets/minza-collection.png";
+import alifFragrance from "../assets/alif-fragrance.png";
 
 const projectsData = {
   fullstack: [
+    {
+      title: "SkillBox institute Website",
+      desc: "A modern educational platform for SkillBox Institute, featuring course listings, admission form, student dashboards, and interactive learning modules. Built with React and Tailwind CSS for a responsive and engaging user experience.",
+      link: "https://skillbox.edu.pk/",
+      image: skillbox,
+      Github: false,
+    },
+    {
+      title: "Trade Alpha Zone Acedemy Website",
+      desc: "A modern educational platform for Trade Alpha Zone Academy, featuring course listings, student dashboards, and interactive learning modules. Built with React and Tailwind CSS for a responsive and engaging user experience.",
+      link: "https://tradealphazone.com/",
+      image: tradeAlphaZone,
+      Github: false,
+    },
+    {
+      title: "NZ Collections brand Website",
+      desc: "A modern Clothes & accesserios brand website with a sleek design, showcasing products and features. Built with React and Tailwind CSS for a responsive and engaging user experience.",
+      link: "https://www.thenzcollection.store/",
+      image: nzCollection,
+      Github: false,
+    },
+    {
+      title: "Minza's Collections brand Website",
+      desc: "Full-stack MERN e-commerce application equipped with dynamic product filtering, seamless checkout flows, and custom dashboard reporting screens.",
+      link: "https://www.minzascollection.store/",
+      image: minza,
+      Github: false,
+    },
+    {
+      title: "Alif Fragrance brand Website",
+      desc: "A modern fragrance brand website with a sleek design, showcasing products and features. Built with React and Tailwind CSS & Express Node.js for a responsive and engaging user experience.",
+      link: "https://www.aliffragrance.store/",
+      image: alifFragrance,
+      Github: false,
+    },
     {
       title: "Chanoor Jewelries Brand Website",
       desc: "A modern Chanoor Jewelries brand website with a sleek design, showcasing products and features. Built with React and Tailwind CSS for a responsive and engaging user experience. ",
@@ -112,7 +152,6 @@ const projectsData = {
       image: SaaS,
       Github: "https://github.com/Arbazali0347/BG-remover-SAAS"
     },
-
     {
       title: "AM Chemical E-Commerce",
       desc: "A complete e-commerce platform for selling chemical products online. Includes product management, secure checkout, and order handling. Built with MERN Stack (MongoDB, Express, React, Node.js).",
@@ -120,7 +159,6 @@ const projectsData = {
       image: ECom,
       Github: "https://github.com/Arbazali0347/AM-E-Commerce"
     },
-
     {
       title: "AI Blogging Platform",
       desc: "A modern blogging platform with AI-assisted content tools. Allows users to write, publish, and manage blog posts easily. Built with MERN Stack and integrated AI features.",
@@ -128,7 +166,6 @@ const projectsData = {
       image: Blogging,
       Github: "https://github.com/Arbazali0347/Arbaz-blog-platfrom"
     },
-
   ],
   react: [
     { title: "Zalvyn Perfume Brand Store", desc: "Beautifull design with brand theme and responsive website.", link: "https://zalvyn-website-aro.vercel.app/", image: perfume, Github: false },
@@ -187,110 +224,152 @@ const Projects = () => {
   ];
 
   return (
-    <div className="min-h-screen px-6 lg:px-16 py-16 text-white">
-      {/* Header Section */}
-      <div className="mb-16 text-center space-y-4">
-        <h1 className="text-4xl lg:text-6xl font-bold tracking-tight">
-          Crafted <span className="bg-gradient-to-r from-blue-400 to-emerald-400 text-transparent bg-clip-text">Works</span>
-        </h1>
-        <div className="inline-flex items-center gap-2 bg-white/5 border border-white/10 px-4 py-1.5 rounded-full">
-          <span className="w-2 h-2 bg-emerald-500 rounded-full animate-pulse"></span>
-          <p className="text-sm text-gray-400 font-medium">{totalProjects} Projects Completed</p>
+    <div className="relative w-full min-h-screen bg-[#020202] text-white py-24 px-6 lg:px-16 overflow-hidden">
+      
+      {/* ── HIGH-TECH BACKGROUND GRID ── */}
+      <div 
+        className="absolute inset-0 pointer-events-none opacity-[0.03] -z-10" 
+        style={{
+          backgroundImage: `
+            linear-gradient(to right, #ffffff 1px, transparent 1px),
+            linear-gradient(to bottom, #ffffff 1px, transparent 1px)
+          `,
+          backgroundSize: "50px 50px"
+        }}
+      />
+
+      {/* ── CINEMATIC AMBIENT GLOWS ── */}
+      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[700px] h-[350px] bg-[radial-gradient(circle,rgba(234,88,12,0.06)_0%,rgba(0,0,0,0)_70%)] blur-[100px] pointer-events-none -z-10" />
+      <div className="absolute bottom-20 left-10 w-[300px] h-[300px] bg-orange-500/5 rounded-full blur-[120px] pointer-events-none -z-10" />
+
+      <div className="max-w-7xl mx-auto relative z-10">
+        
+        {/* ── HEADER SECTION ── */}
+        <div className="mb-20 text-center space-y-5">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 bg-orange-500/10 border border-orange-500/20 rounded-full text-[10px] font-bold tracking-widest text-orange-500 shadow-[inset_0_1px_2px_rgba(255,255,255,0.02)]">
+            <Sparkles size={11} className="animate-pulse" />
+            <span>MY WORKPORTFOLIO</span>
+          </div>
+
+          <h1 className="text-4xl lg:text-6xl font-black uppercase tracking-tight leading-none text-white">
+            Crafted <span className="bg-gradient-to-r from-orange-500 to-orange-600 bg-clip-text text-transparent">Works</span>
+          </h1>
+          
+          <div className="inline-flex items-center gap-2 bg-[#0c0c0e]/60 border border-white/[0.05] px-4 py-1.5 rounded-full backdrop-blur-md">
+            <span className="w-2 h-2 bg-orange-500 rounded-full animate-pulse shadow-[0_0_8px_rgba(234,88,12,0.8)]"></span>
+            <p className="text-xs text-zinc-400 font-bold uppercase tracking-wider">{totalProjects} Projects Completed</p>
+          </div>
         </div>
-      </div>
 
-      {/* Modern Tabs */}
-      <div className="flex justify-center gap-2 lg:gap-4 mb-16 flex-wrap">
-        {tabs.map((tab) => (
-          <button
-            key={tab.key}
-            onClick={() => setActiveTab(tab.key)}
-            className={`relative px-6 py-2.5 rounded-full text-sm font-semibold transition-all duration-300 ${activeTab === tab.key ? "text-white" : "text-gray-500 hover:text-gray-300"
+        {/* ── MODERN TABS ── */}
+        <div className="flex justify-center gap-2.5 lg:gap-3.5 mb-20 flex-wrap">
+          {tabs.map((tab) => (
+            <button
+              key={tab.key}
+              onClick={() => setActiveTab(tab.key)}
+              className={`relative px-6 py-3 rounded-full text-xs font-black uppercase tracking-wider transition-all duration-300 cursor-pointer ${
+                activeTab === tab.key ? "text-white" : "text-zinc-500 hover:text-zinc-300"
               }`}
-          >
-            {activeTab === tab.key && (
-              <motion.div
-                layoutId="activeTab"
-                className="absolute inset-0 bg-white/10 border border-white/20 rounded-full"
-                transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
-              />
-            )}
-            <span className="relative z-10 flex items-center gap-2">
-              {tab.name}
-              <span className={`text-[10px] px-1.5 py-0.5 rounded-md ${activeTab === tab.key ? "bg-blue-500/20 text-blue-300" : "bg-white/5 text-gray-600"}`}>
-                {projectsData[tab.key].length}
-              </span>
-            </span>
-          </button>
-        ))}
-      </div>
-
-      {/* Projects Grid */}
-      <motion.div
-        layout
-        className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8"
-      >
-        <AnimatePresence mode="popLayout">
-          {projectsData[activeTab].map((project, index) => (
-            <motion.div
-              key={project.title}
-              layout
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              exit={{ opacity: 0, scale: 0.9 }}
-              transition={{ duration: 0.4 }}
-              className="group bg-[#0f0f0f] border border-white/10 rounded-[2.5rem] p-4 hover:border-white/20 transition-all duration-500 hover:shadow-2xl hover:shadow-blue-500/10"
             >
-              {/* Card Image */}
-              <div className="relative aspect-video rounded-[1.8rem] overflow-hidden">
-                <img
-                  src={project.image}
-                  alt={project.title}
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+              {activeTab === tab.key && (
+                <motion.div
+                  layoutId="activeTab"
+                  className="absolute inset-0 bg-white/[0.02] border border-orange-500/20 rounded-full shadow-[inset_0_1px_2px_rgba(255,255,255,0.02),0_4px_15px_rgba(234,88,12,0.08)]"
+                  transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-60"></div>
-              </div>
-
-              {/* Card Content */}
-              <div className="px-3 py-6 space-y-3">
-                <h2 className="text-xl font-bold text-gray-100 group-hover:text-blue-400 transition-colors">
-                  {project.title}
-                </h2>
-                <p className="text-gray-400 text-sm line-clamp-2 leading-relaxed font-light">
-                  {project.desc}
-                </p>
-
-                {/* Buttons */}
-                <div className="flex items-center gap-3 pt-4">
-                  {project.link && (
-                    <a
-                      href={project.link}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex-1 flex items-center justify-center gap-2 py-3 rounded-2xl bg-white text-black font-bold text-xs hover:bg-gray-200 transition-colors"
-                    >
-                      <Globe size={14} /> Live Demo
-                    </a>
-                  )}
-                  {project.Github && (
-                    <a
-                      href={project.Github}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex-1 flex items-center justify-center gap-2 py-3 rounded-2xl bg-white/5 border border-white/10 text-white font-bold text-xs hover:bg-white/10 transition-colors"
-                    >
-                      <Github size={14} /> Github
-                    </a>
-                  )}
-                  {!project.link && !project.Github && (
-                    <span className="text-gray-600 text-xs italic">Private Repository</span>
-                  )}
-                </div>
-              </div>
-            </motion.div>
+              )}
+              <span className="relative z-10 flex items-center gap-2">
+                {tab.name}
+                <span className={`text-[9px] px-2 py-0.5 rounded-md font-extrabold ${
+                  activeTab === tab.key ? "bg-orange-500/20 text-orange-400" : "bg-white/[0.03] text-zinc-600"
+                }`}>
+                  {projectsData[tab.key].length}
+                </span>
+              </span>
+            </button>
           ))}
-        </AnimatePresence>
-      </motion.div>
+        </div>
+
+        {/* ── PROJECTS GRID ── */}
+        <motion.div
+          layout
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 sm:gap-10"
+        >
+          <AnimatePresence mode="popLayout">
+            {projectsData[activeTab].map((project) => (
+              <motion.div
+                key={project.title}
+                layout
+                initial={{ opacity: 0, scale: 0.92, y: 15 }}
+                animate={{ opacity: 1, scale: 1, y: 0 }}
+                exit={{ opacity: 0, scale: 0.92, y: 15 }}
+                transition={{ duration: 0.45, ease: "easeOut" }}
+                className="group bg-[#0a0a0c]/40 border border-white/[0.04] rounded-[2.2rem] p-4.5 hover:border-orange-500/15 transition-all duration-500 hover:shadow-[0_20px_50px_rgba(234,88,12,0.06)] relative overflow-hidden backdrop-blur-md flex flex-col justify-between"
+              >
+                <div>
+                  {/* Card Image Container */}
+                  <div className="relative aspect-video rounded-[1.8rem] overflow-hidden bg-[#101014] border border-white/[0.03]">
+                    {project.image ? (
+                      <img
+                        src={project.image}
+                        alt={project.title}
+                        className="w-full h-full object-cover object-top transition-all duration-700 group-hover:scale-105 filter group-hover:brightness-[1.03]"
+                      />
+                    ) : (
+                      <div className="w-full h-full flex items-center justify-center bg-zinc-900 text-zinc-600 text-xs">
+                        No Preview Available
+                      </div>
+                    )}
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#020202]/85 via-transparent to-transparent opacity-80" />
+                  </div>
+
+                  {/* Card Content */}
+                  <div className="px-2 py-5 space-y-3.5">
+                    <h2 className="text-lg font-black tracking-tight text-white group-hover:text-orange-500 transition-colors duration-300 uppercase leading-snug">
+                      {project.title}
+                    </h2>
+                    <p className="text-zinc-400 text-xs sm:text-sm line-clamp-3 leading-relaxed font-light">
+                      {project.desc}
+                    </p>
+                  </div>
+                </div>
+
+                {/* Buttons Action Bar */}
+                <div className="px-2 pt-2.5 pb-2">
+                  <div className="flex items-center gap-3 w-full">
+                    {project.link && (
+                      <a
+                        href={project.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex-1 inline-flex items-center justify-center gap-2 py-3.5 rounded-2xl bg-orange-500 hover:bg-orange-600 text-white font-black text-[10px] uppercase tracking-wider shadow-md shadow-orange-500/10 transition-all duration-300"
+                      >
+                        <Globe size={13} /> Live Demo
+                      </a>
+                    )}
+                    {project.Github && (
+                      <a
+                        href={project.Github}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex-1 inline-flex items-center justify-center gap-2 py-3.5 rounded-2xl bg-[#141417]/80 border border-white/[0.05] hover:border-orange-500/20 text-zinc-300 hover:text-white font-black text-[10px] uppercase tracking-wider transition-all duration-300"
+                      >
+                        <Github size={13} /> Github
+                      </a>
+                    )}
+                    {!project.link && !project.Github && (
+                      <div className="w-full text-center py-2.5 rounded-2xl bg-zinc-950/40 border border-zinc-900 text-zinc-600 text-[10px] font-black uppercase tracking-widest">
+                        Private Repository
+                      </div>
+                    )}
+                  </div>
+                </div>
+
+              </motion.div>
+            ))}
+          </AnimatePresence>
+        </motion.div>
+      </div>
     </div>
   );
 };

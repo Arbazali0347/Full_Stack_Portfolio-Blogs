@@ -1,158 +1,193 @@
-import React from "react";
-import { motion } from "framer-motion";
-import { ExternalLink, Globe, CheckCircle2, AlertCircle } from "lucide-react";
-import chanoor from "../assets/chanoor-home.png";
-import ajrealestate from "../assets/realestate-home.png";
-import ECom from "../assets/Chemical-home.png";
+import React, { useState } from "react";
+import { ArrowUpRight, Github, Sparkles, Globe, DivideSquare } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
+import chanoor from "../assets/chanoor.png";
+import ajrealestate from "../assets/aj-real-estate.png";
+import tradeAlphaZone from "../assets/trade-alpha-zone.png";
+import skillbox from "../assets/skill-box.png";
+import nzCollection from "../assets/nz-collection.png";
+import minza from "../assets/minza-collection.png";
+import alifFragrance from "../assets/alif-fragrance.png";
+import { useNavigate } from "react-router-dom";
 
-// Images import (Replace these with your actual paths)
-// import chanoor from "../assets/chanoor.png";
-// import ajrealestate from "../assets/aj.png";
-// import ECom from "../assets/ecom.png";
+const projectsData = {
+  all: [
+    {
+      title: "SkillBox institute Website",
+      desc: "A modern educational platform for SkillBox Institute, featuring course listings, admission form, student dashboards, and interactive learning modules. Built with React and Tailwind CSS for a responsive and engaging user experience.",
+      link: "https://skillbox.edu.pk/",
+      Image: skillbox,
+      logo: false,
+      Github: false,
+    },
+    {
+      title: "Real Estate Website (AJ)",
+      desc: "A modern real estate platform for showcasing property listings and capturing buyer inquiries. Helps agencies present properties professionally and manage leads online. Built with React, Node.js, Express, and MongoDB.",
+      link: "https://ajrealesate.pk/",
+      Image: ajrealestate,
+      logo: false,
+      Github: false,
+    },
+    {
+      title: "Trade Alpha Zone Acedemy Website",
+      desc: "A modern educational platform for Trade Alpha Zone Academy, featuring course listings, student dashboards, and interactive learning modules. Built with React and Tailwind CSS for a responsive and engaging user experience.",
+      link: "https://tradealphazone.com/",
+      Image: tradeAlphaZone,
+      logo: false,
+      Github: false,
+    },
+    {
+      title: "NZ Collections brand Website",
+      desc: "A modern Clothes & accesserios brand website with a sleek design, showcasing products and features. Built with React and Tailwind CSS for a responsive and engaging user experience.",
+      link: "https://www.thenzcollection.store/",
+      Image: nzCollection,
+      logo: false,
+      Github: false,
+    },
+    {
+      title: "Minza's Collections brand Website",
+      desc: "Full-stack MERN e-commerce application equipped with dynamic product filtering, seamless checkout flows, and custom dashboard reporting screens.",
+      link: "https://www.minzascollection.store/",
+      Image: minza,
+      logo: false,
+      Github: false,
+    },
+    {
+      title: "Alif Fragrance brand Website",
+      desc: "A modern fragrance brand website with a sleek design, showcasing products and features. Built with React and Tailwind CSS & Express Node.js for a responsive and engaging user experience.",
+      link: "https://www.aliffragrance.store/",
+      Image: alifFragrance,
+      logo: false,
+      Github: false,
+    }
+  ]
+};
 
-const projects = [
-  {
-    title: "Chanoor Jewelries Brand",
-    business: "Luxury Jewelry E-commerce",
-    problem: "Jewelry brands need high-end visual trust to convert visitors into buyers.",
-    result: "Created a premium sleek UI that increased user engagement and brand value.",
-    tech: ["React", "Node & Express", "MongoDB", "Tailwind CSS", "Framer Motion", "Cloudinary"],
-    link: "https://chanoor.store/",
-    image: chanoor, // Replace with your 'chanoor' variable
-  },
-  {
-    title: "AJ Real Estate Platform",
-    business: "Property Listing & Lead Gen",
-    problem: "Real estate agencies struggle to manage property leads and professional presentation.",
-    result: "Delivered a centralized MERN platform that automates lead capture and listing management.",
-    tech: ["MongoDB", "Express", "React", "Node.js"],
-    link: "https://ajrealestate.pk/",
-    image: ajrealestate, // Replace with your 'ajrealestate' variable
-  },
-  {
-    title: "AM Chemical Store",
-    business: "Industrial B2B E-commerce",
-    problem: "Traditional chemical sales lack digital inventory management and online checkouts.",
-    result: "Developed a full-stack store with secure COD checkout and product management system.",
-    tech: ["React", "Node & Express", "MongoDB", "Tailwind CSS", "Framer Motion", "Cloudinary"],
-    link: "https://amchemical.store",
-    image: ECom, // Replace with your 'ECom' variable
-  }
-];
+const ProjectSection = () => {
 
-const ProjectsSection = () => {
+  const navigate = useNavigate();
+  const [activeTab] = useState("all");
+
   return (
-    <section className="py-24 px-6 lg:px-16 relative">
-      <div className="max-w-7xl mx-auto">
+    <section className="relative w-full min-h-screen bg-[#020202] text-white px-6 lg:px-16 py-24 overflow-hidden">
+      
+      {/* ── TYPOGRAPHIC BLUR / AMBIENT ORANGE GLOW SYSTEM ── */}
+      <div className="absolute top-10 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-[radial-gradient(circle,rgba(234,88,12,0.18)_0%,rgba(234,88,12,0.04)_50%,rgba(0,0,0,0)_70%)] blur-[70px] pointer-events-none -z-10" />
+      
+      {/* ── HEADER SECTION WITH TYPOGRAPHIC BACKGROUND TEXT ── */}
+      <div className="relative w-full flex flex-col items-center text-center mb-24 select-none">
+        <h2 className="absolute -top-14 text-[13vw] font-black uppercase tracking-widest text-white/[0.012] leading-none filter blur-[3px]">
+          CREATIONS
+        </h2>
         
-        {/* Header */}
-        <div className="mb-20">
-          <motion.div 
-            initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            className="flex items-center gap-4 mb-4"
-          >
-            <div className="h-[2px] w-12 bg-blue-500"></div>
-            <span className="text-blue-400 uppercase tracking-[0.3em] text-sm font-bold">Portfolio</span>
-          </motion.div>
-          <h2 className="text-4xl lg:text-6xl font-bold text-white leading-tight">
-            Featured <span className="text-emerald-400">Projects</span>
-          </h2>
+        <div className="flex items-center gap-2 px-4 py-1.5 bg-zinc-950 border border-zinc-900 rounded-full text-xs font-bold tracking-widest text-orange-500 mb-4 shadow-[inset_0_1px_2px_rgba(255,255,255,0.02)]">
+          <Sparkles size={12} className="animate-pulse" />
+          <span>PORTFOLIO</span>
         </div>
+        
+        <h3 className="text-4xl sm:text-5xl font-black uppercase tracking-tight text-white">
+          SELECTED <span className="bg-gradient-to-r from-orange-500 to-orange-600 bg-clip-text text-transparent">PROJECTS</span>
+        </h3>
+        <div className="w-12 h-[3px] bg-orange-500 mt-4 rounded-full shadow-[0_0_12px_rgba(234,88,12,0.7)]" />
+      </div>
 
-        {/* Projects List */}
-        <div className="space-y-32">
-          {projects.map((project, index) => (
+      {/* ── 3 x 2 GRID CARD CONTAINER ── */}
+      <motion.div
+        layout
+        className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 relative z-10"
+      >
+        <AnimatePresence mode="popLayout">
+          {projectsData[activeTab].map((project) => (
             <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, ease: "easeOut" }}
-              viewport={{ once: true, margin: "-100px" }}
-              className={`flex flex-col ${index % 2 === 0 ? 'lg:flex-row' : 'lg:flex-row-reverse'} gap-12 lg:gap-20 items-center`}
+              key={project.title}
+              layout
+              initial={{ opacity: 0, scale: 0.9, y: 20 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.9 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.4 }}
+              className="group flex flex-col bg-[#0f0f0f] border border-white/5 rounded-[2.5rem] p-4 hover:border-orange-500/30 transition-all duration-500 hover:shadow-2xl hover:shadow-orange-500/5 relative"
             >
-              
-              {/* Project Image Container */}
-              <div className="w-full lg:w-1/2 group relative">
-                <div className="absolute -inset-4 bg-gradient-to-r from-blue-500/20 to-emerald-500/20 rounded-[2rem] blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                <div className="relative overflow-hidden rounded-[2rem] border border-white/10 bg-[#0a0a0a] will-change-transform">
-                  <img 
-                    src={project.image} 
-                    alt={project.title}
-                    className="w-full h-full object-cover grayscale-[20%] group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700"
-                  />
-                  {/* Overlay for link */}
-                  <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                     <a href={project.link} target="_blank" rel="noreferrer" className="p-4 bg-white rounded-full text-black hover:scale-110 transition-transform">
-                        <ExternalLink size={24} />
-                     </a>
-                  </div>
-                </div>
+              {/* 1. Dynamic Image Aspect Frame */}
+              <div className="relative aspect-video rounded-[1.8rem] overflow-hidden bg-zinc-950 border border-white/5 shadow-inner">
+                {/* - Removed grayscale to keep original colors completely intact.
+                  - Added default `scale-105` to keep the image slightly zoomed by default.
+                  - Added `group-hover:scale-110` for an extra premium zoom on hover.
+                */}
+                <img
+                  src={project.Image}
+                  alt={project.title}
+                  className="w-full h-full object-cover scale-105 group-hover:scale-110 contrast-[1.02] brightness-[0.9] group-hover:brightness-100 transition-all duration-700 pointer-events-none"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-60" />
               </div>
 
-              {/* Project Info */}
-              <div className="w-full lg:w-1/2 space-y-6">
+              {/* 2. Text Content Blocks */}
+              <div className="px-3 py-6 space-y-3 flex flex-col flex-grow justify-between">
                 <div className="space-y-2">
-                  <p className="text-emerald-400 font-mono text-sm tracking-wider uppercase">
-                    {project.business}
-                  </p>
-                  <h3 className="text-3xl lg:text-4xl font-bold text-white group-hover:text-blue-400 transition-colors">
+                  <h4 className="text-xl font-bold text-gray-100 group-hover:text-orange-500 transition-colors duration-300 tracking-wide">
                     {project.title}
-                  </h3>
+                  </h4>
+                  <p className="text-gray-400 text-sm line-clamp-3 leading-relaxed font-light">
+                    {project.desc}
+                  </p>
                 </div>
 
-                {/* Problem Solution Cards */}
-                <div className="grid sm:grid-cols-2 gap-4 mt-8">
-                  <div className="p-5 rounded-2xl bg-white/5 border border-white/5 hover:border-red-500/30 transition-colors">
-                    <div className="flex items-center gap-2 text-red-400 mb-2">
-                      <AlertCircle size={18} />
-                      <span className="text-xs font-bold uppercase tracking-wider">The Problem</span>
-                    </div>
-                    <p className="text-sm text-white/60 leading-relaxed">
-                      {project.problem}
-                    </p>
-                  </div>
-                  <div className="p-5 rounded-2xl bg-white/5 border border-white/5 hover:border-emerald-500/30 transition-colors">
-                    <div className="flex items-center gap-2 text-emerald-400 mb-2">
-                      <CheckCircle2 size={18} />
-                      <span className="text-xs font-bold uppercase tracking-wider">The Result</span>
-                    </div>
-                    <p className="text-sm text-white/60 leading-relaxed">
-                      {project.result}
-                    </p>
-                  </div>
-                </div>
-
-                {/* Tech Stack */}
-                <div className="flex flex-wrap gap-3 pt-4">
-                  {project.tech.map((t, i) => (
-                    <span key={i} className="px-3 py-1 text-[10px] font-bold tracking-widest uppercase border border-white/10 rounded-full text-white/40 bg-white/5">
-                      {t}
-                    </span>
-                  ))}
-                </div>
-
-                {/* Action Button */}
-                <div className="pt-6">
-                  <a 
-                    href={project.link} 
-                    target="_blank" 
-                    rel="noreferrer"
-                    className="inline-flex items-center gap-3 px-8 py-4 bg-white text-black font-bold rounded-2xl hover:bg-emerald-400 transition-all duration-300 group"
-                  >
-                    View Live Project
-                    <Globe size={18} className="group-hover:rotate-12 transition-transform" />
-                  </a>
+                {/* 3. Operational Action Buttons */}
+                <div className="flex items-center gap-3 pt-4 mt-auto">
+                  {project.link && (
+                    <a
+                      href={project.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex-1 flex items-center justify-center gap-2 py-3 rounded-2xl bg-white text-black font-bold text-xs hover:bg-orange-500 hover:text-white transition-all duration-300 shadow-[0_4px_12px_rgba(0,0,0,0.15)] active:scale-97"
+                    >
+                      <Globe size={14} /> 
+                      <span>Live Demo</span>
+                    </a>
+                  )}
+                  
+                  {project.Github ? (
+                    <a
+                      href={project.Github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex-1 flex items-center justify-center gap-2 py-3 rounded-2xl bg-white/5 border border-white/10 text-white font-bold text-xs hover:bg-white/10 hover:border-zinc-700 transition-all duration-300 active:scale-97"
+                    >
+                      <Github size={14} /> 
+                      <span>Github</span>
+                    </a>
+                  ) : (
+                    !project.link && (
+                      <span className="text-zinc-600 text-xs italic font-medium tracking-wide w-full text-center py-2 bg-zinc-900/30 rounded-xl border border-zinc-900/60">
+                        Private Repository
+                      </span>
+                    )
+                  )}
                 </div>
               </div>
-
             </motion.div>
           ))}
-        </div>
+        </AnimatePresence>
+      </motion.div>
+
+      {/* ── "MORE PROJECTS" BOTTOM ACTION ── */}
+      <div className="w-full flex justify-center mt-20 relative z-10">
+        <motion.button
+          onClick={() => navigate("/projects")}
+          whileHover={{ scale: 1.03 }}
+          whileTap={{ scale: 0.97 }}
+          className="group px-8 py-3.5 rounded-full bg-[#0f0f0f] border border-zinc-900 text-zinc-300 font-black text-sm uppercase tracking-widest hover:text-white hover:border-orange-500/50 shadow-[0_4px_25px_rgba(0,0,0,0.6),inset_0_1px_2px_rgba(255,255,255,0.01)] transition-all flex items-center gap-3 cursor-pointer"
+        >
+          <span>More Projects</span>
+          <div className="w-5 h-5 rounded-full bg-zinc-900 border border-zinc-800 group-hover:border-orange-500/40 flex items-center justify-center text-zinc-400 group-hover:text-orange-500 transition-colors">
+            <span className="text-xs font-bold font-mono">+</span>
+          </div>
+        </motion.button>
       </div>
+
     </section>
   );
 };
 
-export default ProjectsSection;
+export default ProjectSection;
