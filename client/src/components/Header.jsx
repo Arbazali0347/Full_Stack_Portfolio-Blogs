@@ -1,5 +1,5 @@
 import React from "react";
-import image from "../assets/hero-main.png";
+import image from "../assets/hero_mein.png";
 import {
   Facebook,
   Instagram,

@@ -1,6 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
-import image from "../assets/hero-main.png";
+import image from "../assets/hero_mein.png";
 import { Link } from "react-router-dom";
 import { Sparkles, Code2, ArrowUpRight, CheckCircle2, User } from "lucide-react";
 
